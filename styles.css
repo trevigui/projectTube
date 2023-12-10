@@ -1,0 +1,99 @@
+/* ******************************** UNIVERSAL MODIFICATIONS *************************************** */
+
+*{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; /*Adapting content to viewport borders */
+}
+
+body {
+    background-color: #0f0f0f ;
+}
+
+h1 {
+
+}
+
+/* ************************************ ASIDE ********************************************** */
+
+#desktopSidebar {
+    position: fixed;
+    width: 23vw; /* This width must be set to the same numer as the main's left margin */
+    height: 100vh;
+}
+
+aside :hover {
+    overflow-y: scroll;
+}
+
+.buttonList {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonWrapper {
+ 
+}
+
+.buttonWrapper a {
+    text-decoration: none; /* Removes the underline below hyperlinks */
+}
+
+.buttonWrapper a img {
+    width: 2em;
+    filter: invert()
+}
+
+
+
+/* ************************************ HEADER **********************************************/
+
+header {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 5em;
+}
+
+.miscButtons {
+    width: 1.5em;
+}
+
+.tagButton {
+    background-color: #272727;
+    border-radius: 0.75em; /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border: none 0.1em;
+
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    margin-right: 0.75em;
+}
+
+.loginWrapper {
+    border: 0.1em solid white;
+    border-radius: 1.1250em;
+}
+
+.loginWrapper p {
+    margin:0;
+    background-color:#0f0f0f;
+    color: #3ea6ff;
+}
+
+
+/* *************************************** MAIN ***************************************** */
+
+main {
+    margin-left: 25vw;
+}
