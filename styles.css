@@ -3,77 +3,189 @@
 *{
     color: white;
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box; /*Adapting content to viewport borders */
+    box-sizing: border-box;         /*Adapting content to viewport borders */
+    margin:0;                       /* Always always always add this parameter to the universal selector in order not to see margins around the body and header by default. */
 }
 
 body {
     background-color: #0f0f0f ;
 }
 
-h1 {
-
+.miscImage {
+    width: 1.5em;
 }
 
-/* ************************************ ASIDE ********************************************** */
+/* **************************************** ASIDE ********************************************** */
 
 #desktopSidebar {
-    position: fixed;
-    width: 23vw; /* This width must be set to the same numer as the main's left margin */
-    height: 100vh;
+    position: fixed;                /*  ****************************** TO BE CHANGED WITH TRANSFORM ???????????? **************************** */
+    top: 4em;                       /* This must be set to the same number as the main's top value */
+    width: 15em;                    /* This width must be set to the same numer as the main's left margin */
+    height: 100%;
 }
 
-aside :hover {
-    overflow-y: scroll;
+.buttonTopList {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
 }
 
 .buttonList {
     display: flex;
     flex-direction: column;
+    border-top: solid 0.1em #3f3f3f;
+    padding: 1em;
+}
+
+.filtered {
+    filter: invert();               /*To invert black png icons and make them white */
 }
 
 .buttonWrapper {
- 
+    border: hidden;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.buttonWrapper a:active {
+    background-color: #e90f0f;
+    
 }
 
 .buttonWrapper a {
-    text-decoration: none; /* Removes the underline below hyperlinks */
+    text-decoration: none;          /* Removes the underline below hyperlinks */
+    display: flex;
+    flex-direction: row;            /* Aligning the button description to the right of the icon */
+    align-items: center;            
+}
+
+.buttonWrapper a p {
+    margin-left: 1.5em;
+    font-size: 13px;
 }
 
 .buttonWrapper a img {
-    width: 2em;
-    filter: invert()
+    width: 1.5em;
 }
 
+        /* ***********************************CUSTOM SCROLLBAR ***************************** */
 
+        aside :hover {
+            overflow-y: auto;       /* For some reason, only overflow: auto garners the desired results and shows the scrollbar in aside only */
+        }
+        
+                /* width */
+        ::-webkit-scrollbar {
+            width: 0.6em;
+        }
+
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #717171; /* Specifies the color of the "thumb" (button), not the actual background */
+            border-radius: 10px;
+        }
+
+.loginBlurb {
+    line-height:24px;
+}
 
 /* ************************************ HEADER **********************************************/
 
+
 header {
-    display:flex;
+    position: fixed;               /* Affixing the header's position on scroll...*/
+    top: 0;                         /*... to the top-leftmost part of the page*/
+    width: 100%;                    /*Making the header stick to the left and right borders of the page */
+    flex-wrap: nowrap;
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    padding : 0.9em;
+    background-color: #121212;
 }
 
-header div {
+.headerSection {
     display: flex;
     align-items: center;
 }
 
-.logo {
-    width: 5em;
+.headerSection1 {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+
 }
 
-.miscButtons {
-    width: 1.5em;
+.headerSection1 label {
+    line-height: 0;               /* This removes the unoccupied space of the label line that normally appears below the burger menu icon */
+    padding-right : 2em;
+}
+
+.headerSection1 p {
+    margin-top: 0;                  /*Nullifying the default top margin for <p> */      
+    margin-bottom: 2em;             /*Enforcing a bigger-than-default bottom margin for <p> */
+    font-size: 10px;
+    color: #aaaaaa ;
+}
+
+.headerSection1 a h1 {
+    line-height: 0;                 /* This removes the unoccupied space of the h1 line that normally appears below the logo */
+}
+
+.headerSection2 form {
+    display: flex;
+}
+
+.burgerImage {
+    width: 1.6em;
+}
+
+.logo {
+    width: 2.7em;
+}
+
+.searchBar {
+    background-color: #121212;
+    font-size: 16px;
+    font-weight: 400;
+    height: 2.5em;
+    border: solid #303030 0.1em;
+    border-top-left-radius: 1.1250em;
+    border-bottom-left-radius: 1.1250em;
+    padding-left: 0.7em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+
+    width: 39vw;
+}
+
+.searchButton {
+    background-color: #222222;
+    height: 2.5em;
+    width: 4em;
+    font-size: 16px;
+    line-height: 24px;
+
+    /* To make it look like the search bar and search button are fused together, I apply borders on the button everywhere except on the left of it. */
+    border-top: solid #303030 0.1em;
+    border-bottom: solid #303030 0.1em;
+    border-right: solid #303030 0.1em;
+    border-top-right-radius: 1.1250em;
+    border-bottom-right-radius: 1.1250em;
+}
+
+#image {
+    scale:0.6;
 }
 
 .tagButton {
     background-color: #272727;
-    border-radius: 0.75em; /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border-radius: 0.75em;          /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
-    padding-left: 0.75em;
-    padding-right: 0.75em;
+    padding: 0.75em;
+    font-weight:600;
 
     margin-top: 0.75em;
     margin-bottom: 0.75em;
@@ -81,19 +193,96 @@ header div {
 }
 
 .loginWrapper {
-    border: 0.1em solid white;
+    border: 0.1em solid #303030;
     border-radius: 1.1250em;
+
+    width: fit-content;            /*For some reason the border naturally chose so fit to the parent div. (Because aside is block, not inline ?). This makes it wrap around its child*/
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.loginWrapper a{
+    line-height:0;          /* This removes the unoccupied space of the a link below the log-in picture, thus fixing the alignment with the log-in text". */
+}
+
 
 .loginWrapper p {
     margin:0;
     background-color:#0f0f0f;
     color: #3ea6ff;
+    padding-left: 0.5em;
 }
-
 
 /* *************************************** MAIN ***************************************** */
 
 main {
-    margin-left: 25vw;
+    margin-left: 15em; /* This must be >= to my sidebar width */
+    margin-top : 5em; /* This must roughly be >= to my header heaight */
+}
+
+.grid-container {
+    display: grid;
+    gap: 100px;
+}
+
+.gridItem {
+    border: hidden;
+    border-radius:0.75em;       /* Rounded border */
+    overflow: none;           /* Preventing child images from jutting out of this div */
+
+    background: url(/resources/main/placeholderPNG.png);
+    height: 480px;
+    width: 640px;
+    background-size:20em;
+
+}
+
+.gridItem:hover{
+    background: url(/resources/main/placeholder.gif);
+}
+
+.gridItem img {
+    width: 20em;
+}
+
+/* ***************************************************** ASIDE """""FOOTER""""" ****************************************************************************** */
+
+.footerSection1 {
+    border-top: solid 0.1em #3f3f3f;
+    margin: 1em;
+}
+
+.footerSection1 a {
+    font-size: 13px;
+    color: #aaaaaa;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.footerSection2 {
+    margin: 1em;
+}
+
+.footerSection2 a {
+    color: #aaaaaa;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px
+}
+
+.footerSection3 {
+    margin: 1em;
+}
+
+.footerSection3 p {
+    color: #617161;
+    font-size: 10px;
 }
