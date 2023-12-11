@@ -3,65 +3,95 @@
 *{
     color: white;
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;         /*Adapting content to viewport borders */
-    margin:0;                       /* Always always always add this parameter to the universal selector in order not to see margins around the body and header by default. */
+    box-sizing: border-box;             /*Adapting content to viewport borders */
+    margin: 0;                          /* Always always always add this parameter to the universal selector in order not to see margins around the body and header by default. */
+    height: auto;
 }
 
 body {
+    display: flex;                      /* This notably specifies that aside and main need to follow one another (when switching burger menu width for instance)*/
     background-color: #0f0f0f ;
 }
 
 .miscImage {
-    width: 1.5em;
+    width: 1.8em;
+}
+
+h2 {
+    font-size : 14px;
+
+    margin: 0;
+    padding : 0;
+
+    padding-left: 0.6em;
+    margin-bottom: 0.5em;
 }
 
 /* **************************************** ASIDE ********************************************** */
 
-#desktopSidebar {
-    position: fixed;                /*  ****************************** TO BE CHANGED WITH TRANSFORM ???????????? **************************** */
-    top: 4em;                       /* This must be set to the same number as the main's top value */
-    width: 15em;                    /* This width must be set to the same numer as the main's left margin */
-    height: 100%;
+aside {
+    margin-right: 15em;                /* This must be >= to my sidebar width /// Desired behavior is for main to follow aside's margin */
 }
 
 .buttonTopList {
     display: flex;
     flex-direction: column;
-    margin: 1em;
+
+    /*Purposefully ridding ourselves of the top margin */
+    padding-right: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
 }
 
 .buttonList {
     display: flex;
     flex-direction: column;
     border-top: solid 0.1em #3f3f3f;
-    padding: 1em;
+
+    padding-right: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    padding-left: 1em;              /* Padding instead of margin to keep the border top flush with the leftmost part of the screen */
 }
 
+
+
 .filtered {
-    filter: invert();               /*To invert black png icons and make them white */
+    filter: invert();                 /*To invert black png icons and make them white */
 }
 
 .buttonWrapper {
     border: hidden;
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
-.buttonWrapper a:active {
-    background-color: #e90f0f;
-    
+.buttonWrapper:hover {
+    background-color: #272727;
+}
+
+.buttonWrapper:active {
+    transition: 0.3s ease-in-out;
+    outline: solid rgba(255, 255, 255, 0.344) 1px;
 }
 
 .buttonWrapper a {
     text-decoration: none;          /* Removes the underline below hyperlinks */
     display: flex;
     flex-direction: row;            /* Aligning the button description to the right of the icon */
-    align-items: center;            
+    align-items: center;
 }
 
 .buttonWrapper a p {
     margin-left: 1.5em;
-    font-size: 13px;
+    font-size: 14px;
+    white-space: nowrap;             /* white-space:nowrap or text-wrap:nowrap disables wrapping so that buttons stay on the one line */
+
+    overflow: hidden;              /* Then, in order to show overflow ellipses, we first need to hide said overflow. */
+    text-overflow: ellipsis;       /* Not to be used alone */
 }
 
 .buttonWrapper a img {
@@ -70,39 +100,59 @@ body {
 
         /* ***********************************CUSTOM SCROLLBAR ***************************** */
 
-        aside :hover {
-            overflow-y: auto;       /* For some reason, only overflow: auto garners the desired results and shows the scrollbar in aside only */
+        #desktopSidebar {
+            position: fixed;                /*  ****************************** TO BE CHANGED WITH TRANSFORM ???????????? **************************** */
+            top: 4em;                       /* Not to be used alone */
+            padding-bottom: 4em;            /* It is important to outset the sidebar with a bottom padding as using the "top" setttingalone will skew height in regard to viewport and therefore wille hide the bottom of the sidebar with height set at 100% of viewport. */
+
+
+            width: 15em;                    /* This width must be set to the same numer as the main's left margin */
+            height: 100%;
+            margin: 0 auto;
+            overflow-y: hidden;               /* For some reason, not setting overflow-y:hidden here causes the scroll height to reset when you stop hovering over the sidebar */
+        }
+
+        #desktopSidebar:hover {
+            overflow-y: auto; 
         }
         
-                /* width */
+        /* width */
         ::-webkit-scrollbar {
             width: 0.6em;
         }
-
         
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #717171; /* Specifies the color of the "thumb" (button), not the actual background */
-            border-radius: 10px;
+            background: #717171;  /* Specifies the color of the "thumb" (button), not the actual background */
+            border-radius: 3px;
         }
 
 .loginBlurb {
-    line-height:24px;
+    line-height: 18px;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    font-size: 14px;
 }
 
 /* ************************************ HEADER **********************************************/
 
 
 header {
-    position: fixed;               /* Affixing the header's position on scroll...*/
+    position: fixed;                /* Affixing the header's position on scroll...*/
     top: 0;                         /*... to the top-leftmost part of the page*/
     width: 100%;                    /*Making the header stick to the left and right borders of the page */
     flex-wrap: nowrap;
     display: flex;
+
     align-items: center;
     justify-content: space-between;
-    padding : 0.9em;
-    background-color: #121212;
+    padding : 0.5em;
+    background-color: #0f0f0f;
+
+    padding-left: 2em;
+    padding-right: 2em;
+
 }
 
 .headerSection {
@@ -110,21 +160,15 @@ header {
     align-items: center;
 }
 
-.headerSection1 {
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
-
+.headerSection1 label {           /* Modifying the burger button image */
+    padding-right : 1.2em;
+    color: white;
+    font-size: 20px;
 }
 
-.headerSection1 label {
-    line-height: 0;               /* This removes the unoccupied space of the label line that normally appears below the burger menu icon */
-    padding-right : 2em;
-}
-
-.headerSection1 p {
-    margin-top: 0;                  /*Nullifying the default top margin for <p> */      
-    margin-bottom: 2em;             /*Enforcing a bigger-than-default bottom margin for <p> */
+.headerSection1 p {                 /* Modifying "FR" paragraph after the logo */
+    margin-top: 0;                  /* Nullifying the default top margin for <p> */      
+    margin-bottom: 2em;             /* Enforcing a bigger-than-default bottom margin for <p> */
     font-size: 10px;
     color: #aaaaaa ;
 }
@@ -133,16 +177,12 @@ header {
     line-height: 0;                 /* This removes the unoccupied space of the h1 line that normally appears below the logo */
 }
 
-.headerSection2 form {
-    display: flex;
-}
-
 .burgerImage {
-    width: 1.6em;
+    width: 1.5em;
 }
 
 .logo {
-    width: 2.7em;
+    width: 2.8em;
 }
 
 .searchBar {
@@ -151,37 +191,93 @@ header {
     font-weight: 400;
     height: 2.5em;
     border: solid #303030 0.1em;
-    border-top-left-radius: 1.1250em;
-    border-bottom-left-radius: 1.1250em;
-    padding-left: 0.7em;
+    border-top-left-radius: 1.5em;
+    border-bottom-left-radius: 1.5em;
+    padding-left: 1em;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
 
-    width: 39vw;
+    width: 39em;
 }
 
 .searchButton {
     background-color: #222222;
     height: 2.5em;
-    width: 4em;
+    min-width: 4em;         /* min-width used to prevent the search logo from being squished on zoom */
     font-size: 16px;
-    line-height: 24px;
 
     /* To make it look like the search bar and search button are fused together, I apply borders on the button everywhere except on the left of it. */
     border-top: solid #303030 0.1em;
     border-bottom: solid #303030 0.1em;
     border-right: solid #303030 0.1em;
-    border-top-right-radius: 1.1250em;
-    border-bottom-right-radius: 1.1250em;
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+
+    display: flex;                     
+    justify-content: center;                     /* Centering the logo inside the searchButton div. */
 }
 
 #image {
     scale:0.6;
+    
+}
+
+#kabobButton {
+    margin-right: 1em;
+    line-height: 0;                              /* Removing superflous space used up by empty <a> thus removing slight misalignment of items */
+}
+
+.loginWrapper {
+    border: 0.1em solid #303030;
+    border-radius: 1.5em;
+
+    width: fit-content;                          /*For some reason the border naturally chose so fit to the parent div. (Because aside is block, not inline ?). This makes it wrap around its child*/
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13.5px;
+    font-weight: bold;
+}
+
+.loginWrapper a {
+    line-height: 0;                             /* This removes the unoccupied space of the a link below the log-in picture, thus fixing the alignment with the log-in text". */
+}
+
+.loginWrapper p {
+    margin:0;
+    color: #3ea6ff;
+    padding-left: 0.5em;
+}
+
+            /* ************************** CUSTOM TOOLTIPS ********************************************************* */
+#kabobButton p {
+    display: none;
+    background-color: #5f5e5f;
+    color: white;
+    padding: 20px;
+}
+
+#kabobButton:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use as a hover condition and act on a different one. */
+    display: block;
+    position: absolute;
+}
+
+/* *************************************** MAIN ***************************************** */
+
+main {
+    margin-top : 5em;                         /* This must roughly be >= to my header heaight */
+    flex: 1;                                  /* Essentially means that remaining available space in the dislpay:flex difined in body should be filled out by main */
 }
 
 .tagButton {
     background-color: #272727;
-    border-radius: 0.75em;          /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border-radius: 0.75em;                   /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
     padding: 0.75em;
@@ -192,40 +288,6 @@ header {
     margin-right: 0.75em;
 }
 
-.loginWrapper {
-    border: 0.1em solid #303030;
-    border-radius: 1.1250em;
-
-    width: fit-content;            /*For some reason the border naturally chose so fit to the parent div. (Because aside is block, not inline ?). This makes it wrap around its child*/
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loginWrapper a{
-    line-height:0;          /* This removes the unoccupied space of the a link below the log-in picture, thus fixing the alignment with the log-in text". */
-}
-
-
-.loginWrapper p {
-    margin:0;
-    background-color:#0f0f0f;
-    color: #3ea6ff;
-    padding-left: 0.5em;
-}
-
-/* *************************************** MAIN ***************************************** */
-
-main {
-    margin-left: 15em; /* This must be >= to my sidebar width */
-    margin-top : 5em; /* This must roughly be >= to my header heaight */
-}
-
 .grid-container {
     display: grid;
     gap: 100px;
@@ -233,8 +295,8 @@ main {
 
 .gridItem {
     border: hidden;
-    border-radius:0.75em;       /* Rounded border */
-    overflow: none;           /* Preventing child images from jutting out of this div */
+    border-radius:0.75em;                   /* Rounded border */
+    overflow: none;                         /* Preventing child images from jutting out of this div */
 
     background: url(/resources/main/placeholderPNG.png);
     height: 480px;
@@ -254,12 +316,16 @@ main {
 /* ***************************************************** ASIDE """""FOOTER""""" ****************************************************************************** */
 
 .footerSection1 {
-    border-top: solid 0.1em #3f3f3f;
-    margin: 1em;
+    display: flex;
+    text-align: start;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
 }
 
 .footerSection1 a {
-    font-size: 13px;
     color: #aaaaaa;
     text-decoration: none;
     display: flex;
@@ -267,7 +333,14 @@ main {
 }
 
 .footerSection2 {
-    margin: 1em;
+    font-weight: bold;
+
+    margin-left: 1em;
+    margin-right: 1em;
+    font-size: 12px;
+    line-height: 18px;
+
+    margin-top: 1em;
 }
 
 .footerSection2 a {
@@ -275,14 +348,18 @@ main {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    font-size: 13px
 }
 
 .footerSection3 {
-    margin: 1em;
+    font-weight: bold;
+
+    margin-left: 1em;
+    margin-right: 1em;
+
+    margin-top: 1em;
 }
 
 .footerSection3 p {
-    color: #617161;
-    font-size: 10px;
+    color: #717171;
+    font-size: 11px;
 }
