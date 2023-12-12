@@ -10,47 +10,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <title>YouTube</title>
 </head>
 <body>
     <main>
+        <div class="middleFloat">
+            <section class="middleCard">
+                <div>
+                    <h1><img src="/resources/login/google.png" alt="Logo de Google"></h1>
+                </div>
+                <div id="cardTop">
+                    <h2>Connexion</h2>
+                    <p>Accéder à youTube</p>
+                </div>
+                <div id="cardMail">
+                    <form action="/form/login" method="GET">
+                        <label for="email" hidden>Adresse mail ou numéro de téléphone</label>
+                        <input type="email" id="email" name="email" placeholder="Adresse e-mail ou numéro de téléphone">
+                    </form>
+                </div>
+                <div id="cardMail2">
+                    <p>Adresse e-mail oubliée ?</p>
+                </div>
+                <div id="cardText">
+                    <p>S'il ne s'agit pas de votre ordinateur, utilisez une fenêtre de navigation privée pour vous connecter. <a href="https://support.google.com/accounts?p=signin_privatebrowsing&hl=fr">En savoir plus</a></p>
+                </div>
+                <div id="cardButtons">
+                    <a href="#">Créer un compte</a>
+                    <button>Suivant</button>
+                </div>
+            </section>
         <div>
-            <section>
-                <h1><img src="/resources/login/google.png" alt="Logo de Google"></h1>
-            </section>
-            <section>
-                <h2>Connexion</h2>
-                <p>Accéder à youTube</p>
-            </section>
-            <section>
-                <form action="/form/login" method="GET"></form>
-                <p>Adresse e-mail oubliée ?</p>
-            </section>
-            <section>
-                <p>S'il ne s'agit pas de votre ordinateur, utilisez une fenêtre de navigation privée pour vous connecter. <a href="https://support.google.com/accounts?p=signin_privatebrowsing&hl=fr">En savoir plus</a></p>
-            </section>
-            <section>
-                <a href="#">Créer un compte</a>
-                <button>Suivant</button>
-            </section>
+        <div class="belowCard">
+            <div class="dropdownWrapper">
+                <a href="#" class="dropdownButton">Français (France)</a>
+                <ul class="dropdownMenu">
+                    <li>Deutsch</li>
+                    <li>English</li>
+                    <li>Español</li>
+                    <li>Filipino</li>
+                    <li>Faeilge</li>
+                    <li>Hrvatski</li>
+                    <li>Indonesia</li>
+                    <li>Italiano</li>
+                    <li>Kiswahili</li>
+                    <li>Melayu</li>
+                    <li>Netherlands</li>
+                    <li>Suomi</li>
+                </ul>
+            </div>
+            <div class="links">
+                <a href="https://support.google.com/accounts?hl=fr&p=account_iph">Aide</a>
+                <a href="https://accounts.google.com/TOS?loc=FR&hl=fr&privacy=true">Confidentialité</a>
+                <a href="https://accounts.google.com/TOS?loc=FR&hl=fr">Conditions</a>
+            </div>
         </div>
     </main>
-    <footer>
-        <div class="dropdownWrapper">
-            <a href="#" class="dropdownButton">Français (France)</a>
-            <ul class="dropdownMenu">
-                <li>Français (France)</li>
-                <li>English</li>
-                <li>Deutsch</li>
-                <li>Español</li>
-            </ul>
-        </div>
-        <div>
-            <a href="https://support.google.com/accounts?hl=fr&p=account_iph">Aide</a>
-            <a href="https://accounts.google.com/TOS?loc=FR&hl=fr&privacy=true">Confidentialité</a>
-            <a href="https://accounts.google.com/TOS?loc=FR&hl=fr">Conditions</a>
-        </div>
-    </footer>
+
 </body>
 </html>

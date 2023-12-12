@@ -294,7 +294,7 @@ header {
 }
 
 #image {
-    scale:0.6;   
+    scale:0.6;                                   /* Using the width attribute would squish the image since the button and search bar have hard-coded heights*/ 
 }
 
 #kabobButton {

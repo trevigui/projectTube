@@ -1,53 +1,155 @@
 *{
-    background-color:white;
-    text-decoration:none;
+    text-decoration: none;
+    font-family: 'Roboto',"Noto Sans Myanmar UI",arial,sans-serif;
+    box-sizing: border-box;             /*Adapting content to viewport borders */
 }
 
-.dropdownMenu{
-    display: none;
-    position: relative;
-    top: -55px;
-    padding: 55px 0 0 0;
+h1 {             
+    display: flex;
+    justify-content: center;             /*h1 forces my logo to stay at flex-start even with justify-content:center set in parent container */
+
+}
+
+h1 img {
+    width:3.5em;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 27px;
+    text-align: center;                  /*forces h2 to play along with my world vision*/
+    margin:0;                            /* NO MARGINS 😠 */
+}
+
+.middleFloat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /*Aligning sideways on the page */
+
+    position: relative;          /*Aligning the card vertically, as flex-direction: column and justify-content won't allow me to center vertically for some reason*/
+    top: 20vh;
+
+}
+
+.middleCard {
+    border: #dadce0 solid 1px;
+    border-radius: 0.4em;
+    width: 30em;
+    padding: 40px 40px 60px 40px;
+}
+
+#cardText p {
+    color: rgb(95,99,104);
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-size: 14px;
+}
+
+#cardText a, #cardMail2 p, #cardButtons a {
+    color: rgb(26,115,232);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#cardTop {
+    text-align: center;
+}
+
+#cardMail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#email {
+    border: #dadce0 solid 1px;
+    border-radius: 0.4em;
+    width: 25em;
+    height: 3.5em;
+    padding-left:1em;
+    margin: 0.8em;
+    font-size: 16px;
+}
+
+#cardMail2 p {
     margin: 0;
 }
 
-.dropdownMenu:hover{
-    display: block; 
+#cardButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cardButtons button {
+    font-weight: 500;
+    font-size: 14px;
+background-color: rgb(26,115,232);
+color: white;
+padding: 0.8em 1.7em 0.8em 1.7em;
+border: hidden;
+border-radius: 0.4em;
+}
+
+.belowCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* *************************************** CSS Only Dropdown Menu ***************************************************** */
+.dropdownMenu {
+    display: none;
+    position: relative;
+    top: -410px;
+    padding: -410px 0 0 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+.dropdownMenu:hover {
+    display: block;
 }
 
 li{
-    background: #ddd;
+    background: white;
     padding: 10px;
-    list-style: none;
+    width: 15em;
+    list-style: none;           /* Removal of bullet points */
 }
 
-li:hover{ 
-    background: #eee;
+li:hover { 
+    background: white;
     cursor: pointer;
 }
 
-.dropdownButton{
+.dropdownButton {
     display: inline-block;
     padding: 10px;
-    background: #ccc;
-    color: white;
+    color: black;
+    font-size: 12px;
 }
 
-.dropdownWrapper{
+.dropdownWrapper {
     display: inline-block;
 }
 
-.dropdownWrapper:active ul{
+.links {
+    font-size: 12px;
+}
+
+.dropdownWrapper:active ul {
     display: block;
 } 
 
-.dropdownWrapper:active ul:hover{
+.dropdownWrapper:active ul:hover {
     display: block;
 }
 
-.dropdownWrapper:active #button{
+.dropdownWrapper:active #button {
     display: inline-block;
     padding: 10px;
-    background: #ccc;
-    color: white;
+    background: white;
+    color: black;
 }
