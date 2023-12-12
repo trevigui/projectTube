@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,28 +17,37 @@
     <header>
         <div class="headerSection headerSection1">
             <div class="burgerButton">
-                <label class="burgerLabel" for="burger"><img class="burgerImage filtered" src="/resources/header/burger.png" alt="Menu Principal"></label>
-                <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
+                <img class="burgerImage filtered" src="/resources/header/burger.png" alt="Menu Principal">
             </div>
+            <label class="burgerLabel" for="burger" hidden></label>
+                <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
             <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
             <p>FR</p>
         </div>
-        <div class="headerSection headerSection2">
-                <form action="/navigation/login.html" method="GET">
-                    <label for="search" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" -->
+        <div>
+            <form class="headerSection headerSection2" action="/navigation/login.html" method="GET">
+                <div>
+                    <label for="search" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" to hide it fully -->
                     <input class="searchBar" type="search" id="search" name="search" placeholder="Rechercher" required> <!--"Required" prompts the user to type something into the box if empty-->
-                </form>
-                <form class="searchButton" action="/navigation/login.html" method="GET">
+                </div>
+                <div class="searchButton">
                     <label for="image" hidden></label> 
-                    <input type="image" id="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type will prevent me from applying css to only the image, therefore, we add a background image instead -->
+                    <input type="image" id="image" name="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type to add an image to my div-->
                     <p>Rechercher</p>
-                </form>
+                </div>
+            </form>
         </div>
         <div class="headerSection headerSection3">
             <a id="kabobButton" href="#"><img class="miscImage filtered" src="/resources/header/kabob.png" alt="Bouton Paramètres supérieur"><p>Paramètres</p></a>
             <div class="loginWrapper">
-                <a><img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter"></a>
-                <p>Se connecter</p>
+                <a href="/navigation/login.html">
+                    <div>
+                        <img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter">
+                    </div>
+                    <div>
+                        <p> Se connecter</p>
+                    </div>
+                </a>
             </div>
         </div>
     </header>
@@ -79,7 +88,7 @@
                     <p>Connectez-vous à YouTube pour cliquer sur "J'aime", ajouter un commentaire et vous abonner.</p>
                 </div>
                 <div class="loginWrapper">
-                    <a><img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter"></a>
+                    <a href="/navigation/login.html"><img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter"></a>
                     <p>Se connecter</p>
                 </div>
             </div>

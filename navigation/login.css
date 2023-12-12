@@ -1,0 +1,53 @@
+*{
+    background-color:white;
+    text-decoration:none;
+}
+
+.dropdownMenu{
+    display: none;
+    position: relative;
+    top: -55px;
+    padding: 55px 0 0 0;
+    margin: 0;
+}
+
+.dropdownMenu:hover{
+    display: block; 
+}
+
+li{
+    background: #ddd;
+    padding: 10px;
+    list-style: none;
+}
+
+li:hover{ 
+    background: #eee;
+    cursor: pointer;
+}
+
+.dropdownButton{
+    display: inline-block;
+    padding: 10px;
+    background: #ccc;
+    color: white;
+}
+
+.dropdownWrapper{
+    display: inline-block;
+}
+
+.dropdownWrapper:active ul{
+    display: block;
+} 
+
+.dropdownWrapper:active ul:hover{
+    display: block;
+}
+
+.dropdownWrapper:active #button{
+    display: inline-block;
+    padding: 10px;
+    background: #ccc;
+    color: white;
+}
