@@ -11,6 +11,7 @@
 body {
     display: flex;                      /* This notably specifies that aside and main need to follow one another (when switching burger menu width for instance)*/
     background-color: #0f0f0f ;
+    width: 100%;
 }
 
 .miscImage {
@@ -29,33 +30,31 @@ h2 {
 
 /* **************************************** ASIDE ********************************************** */
 
-aside {
-    margin-right: 15em;                /* This must be >= to my sidebar width /// Desired behavior is for main to follow aside's margin */
+.buttonList {
+    border-top: solid 0.1em #3f3f3f;
+
+    padding-bottom: 1em;
+
+    padding-top: 1em;               /* Padding rather than margin in order to put space between the content and the top border. */
+    padding-left: 1em;              /* Padding rather than margin to keep the top border top flush with the leftmost part of the screen */
+    padding-right: 1em; 
 }
 
 .buttonTopList {
-    display: flex;
-    flex-direction: column;
-
     /*Purposefully ridding ourselves of the top margin */
     padding-right: 1em;
     padding-bottom: 1em;
     padding-left: 1em;
 }
 
-.buttonList {
-    display: flex;
-    flex-direction: column;
+.loginSectionWrapper {
     border-top: solid 0.1em #3f3f3f;
 
-    padding-right: 1em;
     padding-bottom: 1em;
-    padding-top: 1em;
-    padding-left: 1em;              /* Padding instead of margin to keep the border top flush with the leftmost part of the screen */
+    padding-top: 1em;               
+    padding-left: 2em;
+    padding-right: 2em;
 }
-
-
-
 .filtered {
     filter: invert();                 /*To invert black png icons and make them white */
 }
@@ -74,7 +73,7 @@ aside {
 }
 
 .buttonWrapper:active {
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
     outline: solid rgba(255, 255, 255, 0.344) 1px;
 }
 
@@ -88,10 +87,10 @@ aside {
 .buttonWrapper a p {
     margin-left: 1.5em;
     font-size: 14px;
-    white-space: nowrap;             /* white-space:nowrap or text-wrap:nowrap disables wrapping so that buttons stay on the one line */
+    white-space: nowrap;             /* white-space:nowrap disables wrapping so that the button's text stay on the one line */
 
-    overflow: hidden;              /* Then, in order to show overflow ellipses, we first need to hide said overflow. */
-    text-overflow: ellipsis;       /* Not to be used alone */
+    overflow: hidden;               /* Then, in order to show overflow ellipses, we first need to hide said overflow inside the box... */
+    text-overflow: ellipsis;        /* ... Then specify how we want the text overflow to be handled. */
 }
 
 .buttonWrapper a img {
@@ -101,37 +100,33 @@ aside {
         /* ***********************************CUSTOM SCROLLBAR ***************************** */
 
         #desktopSidebar {
-            position: fixed;                /*  ****************************** TO BE CHANGED WITH TRANSFORM ???????????? **************************** */
+
+          
+            /* WAS ON ASIDE margin-right: 15em;                This must be >= to my sidebar width /// Desired behavior is for main to follow aside's margin */
+
+            position: fixed;                /* Making sure the sidebar stays put */
             top: 4em;                       /* Not to be used alone */
-            padding-bottom: 4em;            /* It is important to outset the sidebar with a bottom padding as using the "top" setttingalone will skew height in regard to viewport and therefore wille hide the bottom of the sidebar with height set at 100% of viewport. */
+            padding-bottom: 4em;            /* It is important to outset the sidebar with a bottom padding as using the "top" settting alone will skew height in regard to viewport and hide the bottom of the sidebar when height is set to 100% of viewport. */
 
 
             width: 15em;                    /* This width must be set to the same numer as the main's left margin */
             height: 100%;
             margin: 0 auto;
-            overflow-y: hidden;               /* For some reason, not setting overflow-y:hidden here causes the scroll height to reset when you stop hovering over the sidebar */
+
+            overflow-y: hidden;             /*This hides the scrollbar until I hover over it */
+            scrollbar-color: #717171 transparent;
+            scrollbar-width: thin;
+            scrollbar-gutter: stable;      /*This allow me to preallocate space for the scrollbar gutters and prevent nasty word-wrapping on hover. Another method would have been to make the scrollbar transparent by default and coloring it when hovered */
+            scroll-snap-type:proximity;
         }
 
         #desktopSidebar:hover {
-            overflow-y: auto; 
-        }
-        
-        /* width */
-        ::-webkit-scrollbar {
-            width: 0.6em;
-        }
-        
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #717171;  /* Specifies the color of the "thumb" (button), not the actual background */
-            border-radius: 3px;
+            overflow-y: auto;               /*This shows the scrollbar on hover */
         }
 
 .loginBlurb {
     line-height: 18px;
-    margin-left: 0.5em;
-    margin-right: 1em;
-    margin-bottom: 1em;
+    padding-bottom: 1em;
     font-size: 14px;
 }
 
@@ -197,16 +192,17 @@ header {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
 
-    width: 39em;
+    min-width: 30vw;
+
 }
 
 .searchButton {
     background-color: #222222;
     height: 2.5em;
-    min-width: 4em;         /* min-width used to prevent the search logo from being squished on zoom */
+    width: 4em;         /* min-width could be used to prevent the search logo from being squished on zoom but it is broken of Firefox... */
     font-size: 16px;
 
-    /* To make it look like the search bar and search button are fused together, I apply borders on the button everywhere except on the left of it. */
+    /* To make it look like the search bar and search button are fused together, I apply borders on the button everywhere except to the left of it. */
     border-top: solid #303030 0.1em;
     border-bottom: solid #303030 0.1em;
     border-right: solid #303030 0.1em;
@@ -256,22 +252,48 @@ header {
 }
 
             /* ************************** CUSTOM TOOLTIPS ********************************************************* */
-#kabobButton p {
-    display: none;
-    background-color: #5f5e5f;
-    color: white;
-    padding: 20px;
+
+            #kabobButton p {
+                display: none;
+                background-color: #5f5e5fe3;
+                color: white;
+                padding: 20px;
+            }
+
+            #kabobButton:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use hover on, then act on a different one. */
+                display: block;
+                position: absolute;
+                margin-top: 1em;
+                border-radius: 0.3em;
+
+                animation: fadeIn 0.3s ease-in-out;
+            }
+
+            .searchButton p {
+                display: none;
+                background-color: #5f5e5fe3;
+                color: white;
+                padding: 10px;
+            }
+
+            .searchButton:hover p {
+                display: block;
+                position: absolute;
+                margin-top: 3em;
+                border-radius: 0.3em;
+
+                animation: fadeIn 0.3s ease-in-out;
 }
 
-#kabobButton:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use as a hover condition and act on a different one. */
-    display: block;
-    position: absolute;
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 /* *************************************** MAIN ***************************************** */
 
 main {
-    margin-top : 5em;                         /* This must roughly be >= to my header heaight */
+    top : 4em;                                /* This must be equal to my aside's "top" value */
     flex: 1;                                  /* Essentially means that remaining available space in the dislpay:flex difined in body should be filled out by main */
 }
 
@@ -288,9 +310,11 @@ main {
     margin-right: 0.75em;
 }
 
-.grid-container {
+.gridContainer {
     display: grid;
-    gap: 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /*  Three columns - 1fr = 150 px */
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
 }
 
 .gridItem {
@@ -319,7 +343,6 @@ main {
     display: flex;
     text-align: start;
     margin-left: 1em;
-    margin-right: 1em;
     font-size: 12px;
     font-weight: bold;
     line-height: 18px;
@@ -334,12 +357,11 @@ main {
 
 .footerSection2 {
     font-weight: bold;
-
-    margin-left: 1em;
-    margin-right: 1em;
     font-size: 12px;
     line-height: 18px;
 
+    margin-left: 1em;
+    /* Avoiding right margins as it causes nasty text wrap upon hovering over the sidebar and the scroll bar appearing */
     margin-top: 1em;
 }
 
@@ -348,14 +370,13 @@ main {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    white-space: nowrap;
 }
 
 .footerSection3 {
     font-weight: bold;
 
     margin-left: 1em;
-    margin-right: 1em;
-
     margin-top: 1em;
 }
 
