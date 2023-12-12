@@ -45,7 +45,7 @@ h2 {
     font-size: 14px;
 }
 
-#cardText a, #cardMail2 p, #cardButtons a {
+#cardText a, #cardMail2 a, #cardButtons a {
     color: rgb(26,115,232);
     font-weight: 500;
     font-size: 14px;
@@ -71,10 +71,6 @@ h2 {
     font-size: 16px;
 }
 
-#cardMail2 p {
-    margin: 0;
-}
-
 #cardButtons {
     display: flex;
     justify-content: space-between;
@@ -84,18 +80,20 @@ h2 {
 #cardButtons button {
     font-weight: 500;
     font-size: 14px;
-background-color: rgb(26,115,232);
-color: white;
-padding: 0.8em 1.7em 0.8em 1.7em;
-border: hidden;
-border-radius: 0.4em;
+    background-color: rgb(26,115,232);
+    color: white;
+    padding: 0.8em 1.7em 0.8em 1.7em;
+    border: hidden;
+    border-radius: 0.4em;
 }
 
 .belowCard {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+
+    margin-top:1em;
 }
 
 /* *************************************** CSS Only Dropdown Menu ***************************************************** */
@@ -137,6 +135,11 @@ li:hover {
 
 .links {
     font-size: 12px;
+    margin-left: 3em;
+}
+
+.links a {
+    color: black;
 }
 
 .dropdownWrapper:active ul {

@@ -232,7 +232,7 @@ header {
     margin-top: 0;                  /* Nullifying the default top margin for <p> */      
     margin-bottom: 2em;             /* Enforcing a bigger-than-default bottom margin for <p> */
     font-size: 10px;
-    color: #aaaaaa ;
+    color: #aaaaaa;
 }
 
 .headerSection1 a h1 {
@@ -398,7 +398,7 @@ header {
 
 .tagButton {
     background-color: #272727;
-    border-radius: 0.75em;                   /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border-radius: 0.75em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
     padding: 0.70em;
@@ -411,21 +411,20 @@ header {
 
 .gridContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /*  Three columns - 1fr = 150 px */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;         /*  Three columns - 1fr = 150 px */
     grid-template-rows: 1fr 1fr;
     gap: 10px;
 }
 
 .gridItem {
     border: hidden;
-    border-radius:0.75em;                   /* Rounded border */
-    overflow: none;                         /* Preventing child images from jutting out of this div */
+    border-radius:0.75em;                               /* Rounded border */
+    overflow: none;                                     /* Preventing child images from jutting out of this div */
 
-    background: url(/resources/main/placeholderPNG.png);
-    height: 480px;
-    width: 640px;
+    background: url(/resources/main/placeholderPNG.png);/* Embedding the image in CSS directly so that it can be replaced on hover by a preview reel */
+    height: 160px;                                      /* Necessary to make to grid appear */
+    width: 213px;
     background-size:20em;
-
 }
 
 .gridItem:hover{
@@ -434,6 +433,11 @@ header {
 
 .gridItem img {
     width: 20em;
+}
+
+.gridItem1 {
+    grid-column: 1 / 3 ;
+    grid-row: 1 / 1 ;
 }
 
 /* ***************************************************** """""FOOTER""""" ****************************************************************************** */
