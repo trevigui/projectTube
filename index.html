@@ -16,8 +16,10 @@
 <body>
     <header>
         <div class="headerSection headerSection1">
-            <label for="burger">☰</label>
-            <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
+            <div class="burgerButton">
+                <label class="burgerLabel" for="burger"><img class="burgerImage filtered" src="/resources/header/burger.png" alt="Menu Principal"></label>
+                <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
+            </div>
             <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
             <p>FR</p>
         </div>
@@ -42,166 +44,192 @@
     </header>
 
     <aside>
-        <div id="scrollBar">
-            <div id="desktopSidebar">      
-                <div class="buttonTopList">
-                    <div class="buttonWrapper" title="Accueil">
-                        <a href="#"><img class="filtered" src="/resources/aside/home.png" alt="Bouton Accueil">
-                            <p>Accueil</p>
-                        </a>                        
-                    </div>
-                    <div class="buttonWrapper" title="Shorts">
-                        <a href="https://www.youtube.com/shorts/"><img class="filtered" src="/resources/aside/shorts.png" alt="Bouton Shorts">
-                            <p>Shorts</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Abonnements">
-                        <a href="https://www.youtube.com/feed/subscriptions"><img class="filtered" src="/resources/aside/subscriptions.png" alt="Bouton Abonnements">
-                            <p>Abonnements</p>
-                        </a>  
-                    </div>
+        <div id="fullSidebar">      
+            <div class="buttonTopList">
+                <div class="buttonWrapper" title="Accueil">
+                    <a href="#"><img src="/resources/aside/home.png" alt="Bouton Accueil">
+                        <p>Accueil</p>
+                    </a>                        
                 </div>
-                <div class="buttonList">
-                    <div class="buttonWrapper" title="Vous">
-                        <a href="https://www.youtube.com/feed/you"><img class="filtered" src="/resources/aside/you.png" alt="Bouton Playlists">
-                            <p>Vous</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Historique">
-                        <a href="https://www.youtube.com/feed/history"><img class="filtered" src="/resources/aside/history.png" alt="Bouton historique de lecture">
-                            <p>Historique</p>
-                        </a>  
-                    </div>
+                <div class="buttonWrapper" title="Shorts">
+                    <a href="https://www.youtube.com/shorts/"><img class="filtered" src="/resources/aside/shorts.png" alt="Bouton Shorts">
+                        <p>Shorts</p>
+                    </a>  
                 </div>
-                <div class="loginSectionWrapper">
-                    <div class="loginBlurb">
-                        <p>Connectez-vous à YouTube pour cliquer sur "J'aime", ajouter un commentaire et vous abonner.</p>
-                    </div>
-                    <div class="loginWrapper">
-                        <a><img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter"></a>
-                        <p>Se connecter</p>
-                    </div>
+                <div class="buttonWrapper" title="Abonnements">
+                    <a href="https://www.youtube.com/feed/subscriptions"><img class="filtered" src="/resources/aside/subscriptions.png" alt="Bouton Abonnements">
+                        <p>Abonnements</p>
+                    </a>  
                 </div>
-                <div class="buttonList">
-                    <h2>Explorer</h2>
-                    <div class="buttonWrapper" title="Tendances">
-                        <a href="https://www.youtube.com/feed/trending"><img class="filtered" src="/resources/aside/explore/trending.png" alt="Bouton Tendances">
-                            <p>Tendances</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Musique">
-                        <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"><img class="filtered" src="/resources/aside/explore/music.png" alt="Bouton Musique">
-                            <p>Musique</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Films et séries TV">
-                        <a href="https://www.youtube.com/feed/storefront?bp=ogUCKAI%3D"><img class="filtered" src="/resources/aside/explore/movies.png" alt="Bouton Films et séries TV">
-                            <p>Films et séries TV</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Direct">
-                        <a href="https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig"><img class="filtered" src="/resources/aside/explore/live.png" alt="Bouton Direct">
-                            <p>Direct</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Jeux vidéo">
-                        <a href="https://www.youtube.com/gaming"><img class="filtered" src="/resources/aside/explore/gaming.png" alt="Bouton Jeux vidéo">
-                            <p>Jeux vidéo</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Actualités">
-                        <a href="https://www.youtube.com/channel/UCYfdidRxbB8Qhf0Nx7ioOYw"><img class="filtered" src="/resources/aside/explore/news.png" alt="Bouton Actualités">
-                            <p>Actualités</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Sport">
-                        <a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"><img class="filtered" src="/resources/aside/explore/sports.png" alt="Bouton Sports">
-                            <p>Sports</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Savoirs & Cultures">
-                        <a href="https://www.youtube.com/channel/UCtFRv9O2AHqOZjjynzrv-xg"><img class="filtered" src="/resources/aside/explore/learning.png" alt="Bouton Savoir et Cultures">
-                            <p>Savoir et Cultures</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Mode et beauté">
-                        <a href="https://www.youtube.com/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ"><img class="filtered" src="/resources/aside/explore/fashion.png" alt="Bouton Mode et beauté">
-                            <p>Mode et beauté</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="Podcasts">
-                        <a href="https://www.youtube.com/podcasts"><img class="filtered" src="/resources/aside/explore/podcasts.png" alt="Bouton Podcasts">
-                            <p>Podcasts</p>
-                        </a>  
-                    </div>
+            </div>
+            <div class="buttonList">
+                <div class="buttonWrapper" title="Vous">
+                    <a href="https://www.youtube.com/feed/you"><img class="filtered" src="/resources/aside/you.png" alt="Bouton Playlists">
+                        <p>Vous</p>
+                    </a>  
                 </div>
-                <div class="buttonList">
-                    <div class="buttonWrapper" title="Chaînes">
-                        <a href="https://www.youtube.com/feed/guide_builder"><img class="filtered" src="/resources/aside/explore/browse.png" alt="Bouton Chaînes">
-                            <p>Chaînes</p>
-                        </a>
-                    </div>
+                <div class="buttonWrapper" title="Historique">
+                    <a href="https://www.youtube.com/feed/history"><img class="filtered" src="/resources/aside/history.png" alt="Bouton historique de lecture">
+                        <p>Historique</p>
+                    </a>  
                 </div>
-                <div class="buttonList">
-                    <h2>Autres contenus YouTube</h2>
-                    <div class="buttonWrapper" title="YouTube Premium">
-                        <a href="https://www.youtube.com/premium"><img src="/resources/aside/explore/youtubePremium.png" alt="Bouton YouTube Premium">
-                            <p>YouTube Premium</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="YouTube Music">
-                        <a href="https://music.youtube.com/"><img src="/resources/aside/explore/premiumMusic.png" alt="Bouton YouTube Music">
-                            <p>YouTube Music</p>
-                        </a>  
-                    </div>
-                    <div class="buttonWrapper" title="YouTube Kids">
-                        <a href="https://www.youtubekids.com/?source=youtube_web"><img src="/resources/aside/explore/youtubeKids.png" alt="Bouton YouTube Kids">
-                            <p>YouTube Kids</p>
-                        </a>  
-                    </div>
+            </div>
+            <div class="loginSectionWrapper">
+                <div class="loginBlurb">
+                    <p>Connectez-vous à YouTube pour cliquer sur "J'aime", ajouter un commentaire et vous abonner.</p>
                 </div>
-                <div class="buttonList">
-                    <div class="buttonWrapper" title="Paramètres">
-                        <a href="https://www.youtube.com/account"><img class="filtered" src="/resources/aside/explore/settings.png" alt="Bouton Paramètres">
-                            <p>Paramètres</p>
-                        </a>
-                    </div>
-                    <div class="buttonWrapper" title="Historique des signalements">
-                        <a href="https://www.youtube.com/reporthistory"><img class="filtered" src="/resources/aside/explore/report.png" alt="Historique des signalements">
-                            <p>Historique des signalements</p>
-                        </a>
-                    </div>
-                    <div class="buttonWrapper" title="Aide">
-                        <a href="#"><img class="filtered" src="/resources/aside/explore/help.png" alt="Bouton Aide">
-                        <p>Aide</p>
-                        </a>
-                    </div>
-                    <div class="buttonWrapper" title="Envoyer des commentaires">
-                        <a href="#"><img class="filtered" src="/resources/aside/explore/feedback.png" alt="Bouton Envoyer des commentaires">
-                            <p>Envoyer des commentaires</p>
-                        </a>
-                    </div>
+                <div class="loginWrapper">
+                    <a><img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter"></a>
+                    <p>Se connecter</p>
                 </div>
-                <div class="buttonList">
-                    <div class="footerSection1">
-                    <a href="#">Présentation&emsp;Presse <br> Droits d'auteur&emsp;Nous contacter <br> Créateurs&emsp;Publicité <br> Développeurs</a> 
-                    </div>
-                    <div class="footerSection2">
-                        <a href="#">Conditions d'utilisation</a>
-                        <a href="#">Confidentialité</a> 
-                        <a href="#">Règles et sécurité</a> 
-                        <a href="#">Premiers pas sur YouTube</a> 
-                        <a href="#">Tester de nouvelles fonctionnalités</a> 
-                    </div>
-                    <div class="footerSection3">
-                        <p>© 2023 Google LLC</p>
-                    </div>
+            </div>
+            <div class="buttonList">
+                <h2>Explorer</h2>
+                <div class="buttonWrapper" title="Tendances">
+                    <a href="https://www.youtube.com/feed/trending"><img class="filtered" src="/resources/aside/explore/trending.png" alt="Bouton Tendances">
+                        <p>Tendances</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Musique">
+                    <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"><img class="filtered" src="/resources/aside/explore/music.png" alt="Bouton Musique">
+                        <p>Musique</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Films et séries TV">
+                    <a href="https://www.youtube.com/feed/storefront?bp=ogUCKAI%3D"><img class="filtered" src="/resources/aside/explore/movies.png" alt="Bouton Films et séries TV">
+                        <p>Films et séries TV</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Direct">
+                    <a href="https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig"><img class="filtered" src="/resources/aside/explore/live.png" alt="Bouton Direct">
+                        <p>Direct</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Jeux vidéo">
+                    <a href="https://www.youtube.com/gaming"><img class="filtered" src="/resources/aside/explore/gaming.png" alt="Bouton Jeux vidéo">
+                        <p>Jeux vidéo</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Actualités">
+                    <a href="https://www.youtube.com/channel/UCYfdidRxbB8Qhf0Nx7ioOYw"><img class="filtered" src="/resources/aside/explore/news.png" alt="Bouton Actualités">
+                        <p>Actualités</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Sport">
+                    <a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw"><img class="filtered" src="/resources/aside/explore/sports.png" alt="Bouton Sports">
+                        <p>Sports</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Savoirs & Cultures">
+                    <a href="https://www.youtube.com/channel/UCtFRv9O2AHqOZjjynzrv-xg"><img class="filtered" src="/resources/aside/explore/learning.png" alt="Bouton Savoir et Cultures">
+                        <p>Savoir et Cultures</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Mode et beauté">
+                    <a href="https://www.youtube.com/channel/UCrpQ4p1Ql_hG8rKXIKM1MOQ"><img class="filtered" src="/resources/aside/explore/fashion.png" alt="Bouton Mode et beauté">
+                        <p>Mode et beauté</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="Podcasts">
+                    <a href="https://www.youtube.com/podcasts"><img class="filtered" src="/resources/aside/explore/podcasts.png" alt="Bouton Podcasts">
+                        <p>Podcasts</p>
+                    </a>  
+                </div>
+            </div>
+            <div class="buttonList">
+                <div class="buttonWrapper" title="Chaînes">
+                    <a href="https://www.youtube.com/feed/guide_builder"><img class="filtered" src="/resources/aside/explore/browse.png" alt="Bouton Chaînes">
+                        <p>Chaînes</p>
+                    </a>
+                </div>
+            </div>
+            <div class="buttonList">
+                <h2>Autres contenus YouTube</h2>
+                <div class="buttonWrapper" title="YouTube Premium">
+                    <a href="https://www.youtube.com/premium"><img src="/resources/aside/explore/youtubePremium.png" alt="Bouton YouTube Premium">
+                        <p>YouTube Premium</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="YouTube Music">
+                    <a href="https://music.youtube.com/"><img src="/resources/aside/explore/premiumMusic.png" alt="Bouton YouTube Music">
+                        <p>YouTube Music</p>
+                    </a>  
+                </div>
+                <div class="buttonWrapper" title="YouTube Kids">
+                    <a href="https://www.youtubekids.com/?source=youtube_web"><img src="/resources/aside/explore/youtubeKids.png" alt="Bouton YouTube Kids">
+                        <p>YouTube Kids</p>
+                    </a>  
+                </div>
+            </div>
+            <div class="buttonList">
+                <div class="buttonWrapper" title="Paramètres">
+                    <a href="https://www.youtube.com/account"><img class="filtered" src="/resources/aside/explore/settings.png" alt="Bouton Paramètres">
+                        <p>Paramètres</p>
+                    </a>
+                </div>
+                <div class="buttonWrapper" title="Historique des signalements">
+                    <a href="https://www.youtube.com/reporthistory"><img class="filtered" src="/resources/aside/explore/report.png" alt="Historique des signalements">
+                        <p>Historique des signalements</p>
+                    </a>
+                </div>
+                <div class="buttonWrapper" title="Aide">
+                    <a href="#"><img class="filtered" src="/resources/aside/explore/help.png" alt="Bouton Aide">
+                    <p>Aide</p>
+                    </a>
+                </div>
+                <div class="buttonWrapper" title="Envoyer des commentaires">
+                    <a href="#"><img class="filtered" src="/resources/aside/explore/feedback.png" alt="Bouton Envoyer des commentaires">
+                        <p>Envoyer des commentaires</p>
+                    </a>
+                </div>
+            </div>
+            <div class="buttonList">
+                <div class="footerSection1">
+                <a href="#">Présentation&emsp;Presse <br> Droits d'auteur&emsp;Nous contacter <br> Créateurs&emsp;Publicité <br> Développeurs</a> 
+                </div>
+                <div class="footerSection2">
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Confidentialité</a> 
+                    <a href="#">Règles et sécurité</a> 
+                    <a href="#">Premiers pas sur YouTube</a> 
+                    <a href="#">Tester de nouvelles fonctionnalités</a> 
+                </div>
+                <div class="footerSection3">
+                    <p>© 2023 Google LLC</p>
                 </div>
             </div>
         </div>
 
-        <div id="tabletSidebar">
+        <div id="compactSidebar">
+            <div class="compactButtonList">
+                <div class="compactButtonWrapper" active>
+                    <a  title="Accueil" href="#"><img class="compactImage" src="/resources/aside/home.png" alt="Bouton Accueil">
+                        <p>Accueil</p>
+                    </a>    
+                </div>
+                <div class="compactButtonWrapper">
+                    <a title="Shorts" href="https://www.youtube.com/shorts/"><img class="compactImage filtered" src="/resources/aside/shorts.png" alt="Bouton Shorts">
+                    <p>Shorts</p>
+                </a>
+                </div>
+                <div class="compactButtonWrapper">
+                    <a title="Abonnements" href="https://www.youtube.com/feed/subscriptions"><img class="compactImage filtered" src="/resources/aside/subscriptions.png" alt="Bouton Abonnements">
+                        <p>Abonnements</p>
+                    </a> 
+                </div>
+                <div class="compactButtonWrapper">
+                    <a title="Vous" href="https://www.youtube.com/feed/you"><img class="compactImage filtered" src="/resources/aside/you.png" alt="Bouton Playlists">
+                        <p>Vous</p>
+                    </a>  
+                </div>
+                <div class="compactButtonWrapper">
+                    <a title="Historique" href="https://www.youtube.com/feed/history"><img class="compactImage filtered" src="/resources/aside/history.png" alt="Bouton historique de lecture">
+                        <p>Historique</p>
+                    </a> 
+                </div>
+            </div>
         </div>
+
         <div id="mobileSidebar">
         </div>
     </aside>

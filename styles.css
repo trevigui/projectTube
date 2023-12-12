@@ -8,8 +8,11 @@
     height: auto;
 }
 
+a:link {
+    text-decoration: none;              /* Saying goodbye forever to that pesky link underline */
+}
+
 body {
-    display: flex;                      /* This notably specifies that aside and main need to follow one another (when switching burger menu width for instance)*/
     background-color: #0f0f0f ;
     width: 100%;
 }
@@ -30,6 +33,34 @@ h2 {
 
 /* **************************************** ASIDE ********************************************** */
 
+/* *************************************** FULL SIDEBAR **************************************** */
+
+#fullSidebar {
+
+    display:none;
+
+    background-color:#0f0f0f;
+    position: fixed;                /* Making sure the sidebar stays put */
+    top: 5em;                       /* Not to be used alone */
+    padding-bottom: 5em;            /* It is important to outset the sidebar with a bottom padding as using the "top" settting alone will skew height in regard to viewport and hide the bottom of the sidebar when height is set to 100% of viewport. */
+
+
+    width: 15em;                    /* This width must be set to the same numer as the main's left margin */
+    height: 100%;
+    margin: 0 auto;
+
+    /* *************CUSTOM SCROLLBAR ************** */
+
+    overflow-y: hidden;             /*This hides the scrollbar until I hover over it */
+    scrollbar-color: #717171 transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;      /*This allow me to preallocate space for the scrollbar gutters and prevent nasty word-wrapping on hover. Another method would have been to make the scrollbar transparent by default and coloring it when hovered */
+}
+
+#fullSidebar:hover {
+    overflow-y: auto;               /*This shows the scrollbar on hover */
+}
+
 .buttonList {
     border-top: solid 0.1em #3f3f3f;
 
@@ -37,7 +68,7 @@ h2 {
 
     padding-top: 1em;               /* Padding rather than margin in order to put space between the content and the top border. */
     padding-left: 1em;              /* Padding rather than margin to keep the top border top flush with the leftmost part of the screen */
-    padding-right: 1em; 
+    padding-right: 1em;
 }
 
 .buttonTopList {
@@ -45,18 +76,6 @@ h2 {
     padding-right: 1em;
     padding-bottom: 1em;
     padding-left: 1em;
-}
-
-.loginSectionWrapper {
-    border-top: solid 0.1em #3f3f3f;
-
-    padding-bottom: 1em;
-    padding-top: 1em;               
-    padding-left: 2em;
-    padding-right: 2em;
-}
-.filtered {
-    filter: invert();                 /*To invert black png icons and make them white */
 }
 
 .buttonWrapper {
@@ -78,7 +97,7 @@ h2 {
 }
 
 .buttonWrapper a {
-    text-decoration: none;          /* Removes the underline below hyperlinks */
+    /* text-decoration: none;   */
     display: flex;
     flex-direction: row;            /* Aligning the button description to the right of the icon */
     align-items: center;
@@ -97,38 +116,72 @@ h2 {
     width: 1.5em;
 }
 
-        /* ***********************************CUSTOM SCROLLBAR ***************************** */
+.filtered {
+    filter: invert();                 /*To invert black png icons and make them white */
+}
 
-        #desktopSidebar {
+.loginSectionWrapper {
+    border-top: solid 0.1em #3f3f3f;
 
-          
-            /* WAS ON ASIDE margin-right: 15em;                This must be >= to my sidebar width /// Desired behavior is for main to follow aside's margin */
-
-            position: fixed;                /* Making sure the sidebar stays put */
-            top: 4em;                       /* Not to be used alone */
-            padding-bottom: 4em;            /* It is important to outset the sidebar with a bottom padding as using the "top" settting alone will skew height in regard to viewport and hide the bottom of the sidebar when height is set to 100% of viewport. */
-
-
-            width: 15em;                    /* This width must be set to the same numer as the main's left margin */
-            height: 100%;
-            margin: 0 auto;
-
-            overflow-y: hidden;             /*This hides the scrollbar until I hover over it */
-            scrollbar-color: #717171 transparent;
-            scrollbar-width: thin;
-            scrollbar-gutter: stable;      /*This allow me to preallocate space for the scrollbar gutters and prevent nasty word-wrapping on hover. Another method would have been to make the scrollbar transparent by default and coloring it when hovered */
-            scroll-snap-type:proximity;
-        }
-
-        #desktopSidebar:hover {
-            overflow-y: auto;               /*This shows the scrollbar on hover */
-        }
+    padding-bottom: 1em;
+    padding-top: 1em;               
+    padding-left: 2em;
+    padding-right: 2em;
+}
 
 .loginBlurb {
     line-height: 18px;
     padding-bottom: 1em;
     font-size: 14px;
 }
+
+/* ********************************** COMPACT SIDEBAR ************************************* */
+
+#compactSidebar {
+
+    width: 8em;                     /* This width must be set to the same numer as the main's left margin */
+    height: 100%;
+
+    font-size: 10px;
+    background-color:#0f0f0f;
+
+    position: fixed;                /* Making sure the sidebar stays put */
+    top: 5em;                       /* Not to be used alone */
+    padding-bottom: 5em;            /* outset for bottom */
+}
+
+.compactButtonList {
+    padding: 1em;
+
+
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;            /*Centering the button labels and icons in the compactSidebar*/
+}
+
+.compactButtonWrapper {
+    border: hidden;
+    border-radius: 0.5em;
+
+    padding-top:1.8em;
+    padding-bottom: 1.8em;          /* Space between buttons */
+}
+
+
+.compactButtonWrapper:hover {
+    background-color: #272727;
+}
+
+.compactButtonWrapper:active {
+    transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
+    outline: solid rgba(255, 255, 255, 0.344) 1px;
+}
+
+.compactImage {
+    width: 2.5em;
+}
+
 
 /* ************************************ HEADER **********************************************/
 
@@ -137,28 +190,22 @@ header {
     position: fixed;                /* Affixing the header's position on scroll...*/
     top: 0;                         /*... to the top-leftmost part of the page*/
     width: 100%;                    /*Making the header stick to the left and right borders of the page */
-    flex-wrap: nowrap;
+    
     display: flex;
-
     align-items: center;
     justify-content: space-between;
-    padding : 0.5em;
     background-color: #0f0f0f;
 
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;            /* Same as sidebar buttons left margin's combined total */
+    padding-right: 1em;           /* Same as sidebar buttons left margin's combined total */
 
 }
 
 .headerSection {
     display: flex;
     align-items: center;
-}
-
-.headerSection1 label {           /* Modifying the burger button image */
-    padding-right : 1.2em;
-    color: white;
-    font-size: 20px;
 }
 
 .headerSection1 p {                 /* Modifying "FR" paragraph after the logo */
@@ -173,8 +220,25 @@ header {
 }
 
 .burgerImage {
-    width: 1.5em;
+    width:1.7em;
 }
+
+.burgerButton {
+    border: hidden;
+    border-radius: 50%;
+    padding: 5%;
+    margin-right : 1.5em;
+}
+
+.burgerButton:hover  {
+    background-color:rgba(255, 255, 255, 0.089);
+}
+.burgerLabel {
+    user-select: none;            /* Makes label unselectable */
+    vertical-align: top;
+}
+
+
 
 .logo {
     width: 2.8em;
@@ -283,26 +347,26 @@ header {
                 border-radius: 0.3em;
 
                 animation: fadeIn 0.3s ease-in-out;
-}
+                }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+                @keyframes fadeIn {
+                    from {opacity: 0;}
+                    to {opacity: 1;}
+                }
 
 /* *************************************** MAIN ***************************************** */
 
-main {
-    top : 4em;                                /* This must be equal to my aside's "top" value */
-    flex: 1;                                  /* Essentially means that remaining available space in the dislpay:flex difined in body should be filled out by main */
-}
+/* main {
+    top : 4em; 
+    right : 20em;    This must be equal to my aside's "top" value
+} */
 
 .tagButton {
     background-color: #272727;
     border-radius: 0.75em;                   /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
-    padding: 0.75em;
+    padding: 0.70em;
     font-weight:600;
 
     margin-top: 0.75em;
@@ -337,7 +401,7 @@ main {
     width: 20em;
 }
 
-/* ***************************************************** ASIDE """""FOOTER""""" ****************************************************************************** */
+/* ***************************************************** """""FOOTER""""" ****************************************************************************** */
 
 .footerSection1 {
     display: flex;
@@ -350,7 +414,7 @@ main {
 
 .footerSection1 a {
     color: #aaaaaa;
-    text-decoration: none;
+    /* text-decoration: none; */
     display: flex;
     flex-direction: column;
 }
@@ -367,7 +431,7 @@ main {
 
 .footerSection2 a {
     color: #aaaaaa;
-    text-decoration: none;
+    /* text-decoration: none; */
     display: flex;
     flex-direction: column;
     white-space: nowrap;
