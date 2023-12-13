@@ -40,11 +40,22 @@ h2 {
     padding: 3%;
 }
 
-.burgerLabel:hover  {
+/* *************************************** FULL SIDEBAR **************************************** */
+
+.burgerButton {
+    border: 1px solid #ffffff2a hidden;
+    border-radius:50%;
+    padding: 1em;
+}
+
+.burgerButton:hover  {
     background-color:rgba(255, 255, 255, 0.089);
 }
 
-/* *************************************** FULL SIDEBAR **************************************** */
+.burgerButton:active  {
+    transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
+    outline: solid rgba(255, 255, 255, 0.344) 1px;
+}
 
 .fullTop {
     display: flex;
@@ -53,18 +64,19 @@ h2 {
     align-items: center;
     justify-content: space-between;
 
-    margin:1.5em 1.5em 0 2.5em;
+    margin:0.5em 1.5em 0 1.5em;
 }
 
 #fullSidebar {
     display: block;
     position: absolute;           /* Positioning the full bar on top of the compact one, just in case the compact one doesn't disappear */
-    z-index: 99;
+    z-index: 20;
     top: 6em;
     left:0;
 
     background-color:#0f0f0f;
     padding-right:1em;
+    padding-top:1em;
     height: 100%;
     margin: 0 auto;
 
@@ -136,13 +148,13 @@ h2 {
     border-top: solid 0.1em #3f3f3f;
 
     padding-bottom: 1em;
-    padding-top: 1em;               
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-top: 2em;               
+    padding-left: 3em;
+    padding-right: 5em;
 }
 
 .loginBlurb {
-    line-height: 18px;
+    line-height: 20px;
     padding-bottom: 1em;
     font-size: 14px;
 }
@@ -206,7 +218,6 @@ h2 {
 #fullSidebar {
     transition: 0.2s;
     transform: translateX(-400px);
-
 }
 
 #burger:checked ~ #compactSidebar {
@@ -248,7 +259,7 @@ header {
 }
 
 .headerSection1  {                 
-    margin-left: 3em;
+    margin-left: 2em;
 }
 
 .headerSection1 .logo  {                 
@@ -323,9 +334,8 @@ header {
 }
 
 #kabobButton:active {
-    border: solid rgba(255, 255, 255, 0.123) 1px;
+    outline: solid rgba(255, 255, 255, 0.123) 1px;      /* Using an outline instead of a border prevents the micro-displacement of the header getting bigger because of the adder button border */
     background-color: rgba(255, 255, 255, 0.123);
-    border-radius: 50%
 }
 
 .miscImage {
@@ -412,8 +422,34 @@ header {
 /* *************************************** MAIN CONTENT ***************************************** */
 
 #mainContent {
+    width: 100% ;
+    margin-top: 3.6em;
+    margin-left: 6em;
+}
 
-    background-color: red;
+#mainContent .carousel {
+    white-space: nowrap;
+    overflow-x: hidden; 
+    scrollbar-color: transparent;       /* Keeping the sideways scroll but hiding the scroll bar aways */
+    scrollbar-width: none;
+    scrollbar-gutter: stable;     
+}
+
+.tagButton1 {
+    background-color: white;
+    border-radius: 0.75em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border: none 0.1em;
+
+    padding: 0.70em;
+    font-weight:600;
+
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    margin-right: 0.75em;
+}
+
+.tagButton1 p{
+    color: #272727;
 }
 
 .tagButton {
@@ -429,8 +465,15 @@ header {
     margin-right: 0.75em;
 }
 
+.gridContainer  {
 
-.gridItem {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+/* The > is to focus on the selected item's children. The * is to select all the children */ 
+.gridContainer > * {
     border: hidden;
     border-radius:0.75em;                               /* Rounded border */
     overflow: none;                                     /* Preventing child images from jutting out of this div */
