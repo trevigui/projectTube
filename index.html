@@ -24,19 +24,6 @@
             </div>
         </div>
         </div>
-        <div>
-            <form class="headerSection headerSection2" action="/navigation/login.html" method="GET">
-                <div>
-                    <label for="search" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" to hide it fully -->
-                    <input class="searchBar" type="search" id="search" name="search" placeholder="Rechercher" required> <!--"Required" prompts the user to type something into the box if empty-->
-                </div>
-                <div class="searchButton">
-                    <label for="image" hidden></label> 
-                    <input type="image" id="image" name="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type to add an image to my div-->
-                    <p>Rechercher</p>
-                </div>
-            </form>
-        </div>
         <div class="headerSection headerSection3">
             <a id="kabobButton" href="#"><img class="miscImage filtered" src="/resources/header/kabob.png" alt="Bouton Paramètres supérieur"><p>Paramètres</p></a>
             <div class="loginWrapper">
@@ -61,6 +48,17 @@
                     <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
                     <p>FR</p>
                 </div>
+                <form class="headerSection headerSection2" action="/navigation/login.html" method="GET">
+                    <div>
+                        <label for="search" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" to hide it fully -->
+                        <input class="searchBar" type="search" id="search" name="search" placeholder="Rechercher" required> <!--"Required" prompts the user to type something into the box if empty-->
+                    </div>
+                    <div class="searchButton">
+                        <label for="image" hidden></label> 
+                        <input type="image" id="image" name="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type to add an image to my div-->
+                        <p>Rechercher</p>
+                    </div>
+                </form>
             </div>
             <!-- I am loathe to separate my label from my input but my input needs to be in the same parent as fullSidebar and compactSidebar for the tilde selector to work. -->
             <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
@@ -252,127 +250,207 @@
                     </div>
                 </div>
             </div>
+            <div class="blackVeil">
+            </div>
         </div>
         
         <div id="mainContent">
             <div class="carousel">
-                <button class="tagButton1">
-                    <p>Tous</p>               
-                </button>
-                <button class="tagButton">
-                    <p>Cuisine</p>               
-                </button>
-                <button class="tagButton">
-                    <p>Cuisson au four</p>               
-                </button>
-                <button class="tagButton">
-                    <p>Arts & Crafts</p>               
-                </button>
-                <button class="tagButton">
-                    <p>Gameplay</p>               
-                </button>
-                <button class="tagButton">
-                    <p>Musique</p>
-                </button>
-                <button class="tagButton">
-                    <p>Matériels Informatiques</p>
-                </button>
-                <button class="tagButton">
-                    <p>Applications</p>
-                </button>
-                <button class="tagButton">
-                    <p>Mix</p>
-                </button>
-                <button class="tagButton">
-                    <p>En direct</p>
-                </button>
-                <button class="tagButton">
-                    <p>Animation</p>
-                </button>
-                <button class="tagButton">
-                    <p>Jeux de rôle</p>
-                </button>
-                <button class="tagButton">
-                    <p>Vidéos mises en ligne récemment</p>
-                </button>
-                <button class="tagButton">
-                    <p>Regardées</p>
-                </button>
-                <button class="tagButton">
-                    <p>Nouveautés</p>
-                </button>
+                <div class="tagList">
+                    <button class="tagButton1">
+                        <p>Tous</p>               
+                    </button>
+                    <button class="tagButton">
+                        <p>Cuisine</p>               
+                    </button>
+                    <button class="tagButton">
+                        <p>Cuisson au four</p>               
+                    </button>
+                    <button class="tagButton">
+                        <p>Arts & Crafts</p>               
+                    </button>
+                    <button class="tagButton">
+                        <p>Gameplay</p>               
+                    </button>
+                    <button class="tagButton">
+                        <p>Musique</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Matériels Informatiques</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Applications</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Humour</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Parcs d'attraction</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Mix</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>En direct</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Animation</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Jeux de rôle</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Vidéos mises en ligne récemment</p>
+                    </button>
+                    <button class="tagButton">
+                        <p>Regardées</p>
+                    </button>
+                    <button class="tagButton" id="tagButton16">
+                        <p>Nouveautés</p>
+                    </button>
+                </div>
+                <div class="rightArrowButton">
+                    <a href="#tagButton16"><img class="miscImage" src="/resources/main/rightArrow.png" alt="Flêche Suivant"></a>
+                    <p>Suivant</p>
+                </div>
+            </div>
+            <div class="banner">
+                
             </div>
             <div class="gridContainer">
                 <div class="gridItem gridItem1">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel1.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem2">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel2.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem3">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel3.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem4">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel4.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem5">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel5.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem6">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel6.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem7">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel7.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem8">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel8.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
                 <div class="gridItem gridItem9">
                     <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
-                    <div>
-                        <p>TEST TEST</p>
-                    </div>
-                </div>
-                <div class="gridItem gridItem10">
-                    <div class="thumbnail">
-                        <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" />
-                    </div>
-                    <div>
-                        <p>TEST TEST</p>
+                    <div class="videoDetails">
+                        <div>
+                            <img src="/resources/main/channel9.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Résumé: Pluie de buts entre Manchester City et l'Etoile Rouge</p>
+                            <p class="channelName">beIN SPORTS France</p>
+                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                        </div>    
                     </div>
                 </div>
             </div>

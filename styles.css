@@ -3,9 +3,11 @@
 *{
     color: white;
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;             /*Adapting content to viewport borders */
+    box-sizing: border-box;             /* Adapting content to viewport borders */
     margin: 0;                          /* Always always always add this parameter to the universal selector in order not to see margins around the body and header by default. */
     height: auto;
+
+    scroll-behavior: smooth;            /* This makes clicking anchors (such as back to top) smoother-looking */
 }
 
 a:link {
@@ -74,6 +76,8 @@ h2 {
     top: 6em;
     left:0;
 
+    width:25em;
+
     background-color:#0f0f0f;
     padding-right:1em;
     padding-top:1em;
@@ -86,6 +90,17 @@ h2 {
     scrollbar-color: #717171 transparent;
     scrollbar-width: thin;
     scrollbar-gutter: stable;       /*This allow me to preallocate space for the scrollbar gutters and prevent nasty word-wrapping on hover. Another method would have been to make the scrollbar transparent by default and coloring it when hovered */
+}
+
+.blackVeil {                /* Black div that spawns upon burger menu activaion */
+    display: none;
+    position:absolute;
+
+    background-color:#0000006c ;
+    width:100vw;
+    height:100%;
+
+    animation: fadeIn 1s ease-in-out;           /* It is impossible to use translateX with the display:none display:block mechanic siultaneously 😢. That's the next best thing. */
 }
 
 .buttonList {
@@ -229,6 +244,11 @@ h2 {
     transform: translateX(0px);
 }
 
+#burger:checked ~ .blackVeil {
+    display:inherit;
+    transform: translateX(25em); 
+}
+
 #fullSidebar:hover {
     overflow-y: auto;               /*This shows the scrollbar on hover */
 }
@@ -275,6 +295,11 @@ header {
 
 .headerSection1 a h1 {
     line-height: 0;                 /* This removes the unoccupied space of the h1 line that normally appears below the logo */
+}
+
+.headerSection2 {
+    position: absolute;             /* Keeping the searchbar out of the normal flow as putting it the header caused issues with the sidebar on zoom */
+    left: 33vw;
 }
 
 .burgerImage {
@@ -339,7 +364,7 @@ header {
 }
 
 .miscImage {
-    width: 1.8em;
+    width: 1.6em;
 }
 
 .loginWrapper {
@@ -384,10 +409,11 @@ header {
                 display: none;
                 background-color: #5f5e5fe3;
                 color: white;
-                padding: 20px;
+                padding: 18px;
                 
                 outline: hidden;
                 border-radius: 0.3em;
+                font-size: 12px;
             }
 
             #kabobButton:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use hover on, then act on a different one. */
@@ -396,6 +422,7 @@ header {
                 
 
                 animation: fadeIn 0.3s ease-in-out;
+                margin-top: 1.8em;
             }
 
             .searchButton p {
@@ -403,16 +430,38 @@ header {
                 background-color: #5f5e5fe3;
                 color: white;
                 padding: 10px;
+                font-size: 12px;
             }
 
             .searchButton:hover p {
                 display: block;
                 position: absolute;
-                margin-top: 3em;
+                margin-top: 4.5em;
                 border-radius: 0.3em;
 
                 animation: fadeIn 0.3s ease-in-out;
-                }
+            }
+
+                
+            .rightArrowButton p {
+                display: none;
+                background-color: #5f5e5fe3;
+                color: white;
+                padding: 10px;
+                
+                outline: hidden;
+                border-radius: 0.3em;
+                font-size: 12px;
+            }
+
+            .rightArrowButton:hover p {
+                display: block;
+                position: absolute;
+                margin-top: 7em;
+                border-radius: 0.3em;
+
+                animation: fadeIn 0.3s ease-in-out;
+            }
 
                 @keyframes fadeIn {
                     from {opacity: 0;}
@@ -424,12 +473,18 @@ header {
 #mainContent {
     width: 100% ;
     margin-top: 3.6em;
-    margin-left: 6em;
+    padding-left: 6em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
 }
 
-#mainContent .carousel {
+.carousel {
+    display: flex;
+    align-items: center;
+
+}
+
+#mainContent .tagList {
     white-space: nowrap;
-    overflow-x: hidden; 
+    overflow-x: scroll; 
     scrollbar-color: transparent;       /* Keeping the sideways scroll but hiding the scroll bar aways */
     scrollbar-width: none;
     scrollbar-gutter: stable;     
@@ -440,12 +495,8 @@ header {
     border-radius: 0.75em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
-    padding: 0.70em;
+    padding: 0.7em;
     font-weight:600;
-
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    margin-right: 0.75em;
 }
 
 .tagButton1 p{
@@ -457,45 +508,92 @@ header {
     border-radius: 0.75em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
-    padding: 0.70em;
+    padding: 0.7em;
+    margin-left: 0.5em;
     font-weight:600;
+}
 
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    margin-right: 0.75em;
+.rightArrowButton {
+    border: hidden;
+    border-radius: 50%;
+
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    padding: 0.5em;
+    margin-left:1em;
+}
+
+.rightArrowButton:active {
+    outline: solid rgba(255, 255, 255, 0.344) 1px;
+    background-color: rgba(255, 255, 255, 0.123);
+    transition: 0.3s ease-in-out;
 }
 
 .gridContainer  {
 
     display: flex;
     flex-wrap: wrap;
-
+    margin-top: 1.5em;
+    gap: 1em;
 }
 
-/* The > is to focus on the selected item's children. The * is to select all the children */ 
-.gridContainer > * {
-    border: hidden;
-    border-radius:0.75em;                               /* Rounded border */
-    overflow: none;                                     /* Preventing child images from jutting out of this div */
+/* Example selector : ( .gridContainer > * {} ) The > is to focus on the selected item's children. You can add an asterisk after it to select all the children */ 
 
-    height: 160px;                                      /* Necessary to make to grid appear */
-    width: 213px;
-    background-size:20em;
+.gridItem {
+    border: hidden;
+    overflow: hidden;                                     /* Preventing child images from jutting out of this div. Not necessary with the background-image setting I'm using though. */
+
+    display: flex;
+    flex-direction: column;
+
+    text-wrap:wrap;
+    text-overflow: ellipsis;
+
+    width:calc(720px/2.1);
+
+    flex: 1 1 calc(720px/2.1);                          /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens) */ 
+                                                        /* If I put a flex-basis of 0 for my child items, it would-default to auto aka min-content, every items tries to get as small as possible without overflowing */                                          
 }
 
 .thumbnail {
-    transition: all .2s ease-in-out;
+
+    width: calc(720px/2.1);
+    height: calc(404px/2.1);
+
+    transition: all 0.9s ease-in-out;
+    background-image: no-repeat;
     background: url(/resources/main/videoThumbnail.png);
-    background-position: center;
+    background-size: contain;
+
+
+    border: hidden;
+    border-radius: 0.75em;
+
+    margin-bottom: 0.5em;
 }
 
 .thumbnail:hover{
     background: url(/resources/main/videoThumbnail.gif);
-    background-position: center;
+    background-size: contain;
+    background-image: no-repeat;
+
 }
 
 .gridItem img {
-    width: 20em;
+    border:hidden;
+    border-radius: 50%
+}
+
+.videoTitle {
+    overflow: hidden;
+    text-wrap:wrap;
+    text-overflow: ellipsis;
+}
+
+.videoDetails {
+    display:flex;
+
 }
 
 /* ***************************************************** """""FOOTER""""" ****************************************************************************** */
