@@ -77,7 +77,7 @@ h2 {
     align-items: center;
 }
 
-#cardButtons button {
+#cardButtons .nextButton {
     font-weight: 500;
     font-size: 14px;
     background-color: rgb(26,115,232);
