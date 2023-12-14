@@ -73,7 +73,7 @@ h2 {
     display: block;
     position: absolute;           /* Positioning the full bar on top of the compact one, just in case the compact one doesn't disappear */
     z-index: 20;
-    top: 6em;
+    top: 5.7em;
     left:0;
 
     width:25em;
@@ -259,6 +259,7 @@ h2 {
 
 header {
     position: fixed;                /* Affixing the header's position on scroll...*/
+    z-index: 10;                    /* Below the searchbar, on top of the ad banner */
     top: 0;                         /*... to the top-leftmost part of the page*/
     width: 100%;                    /*Making the header stick to the left and right borders of the page */
     
@@ -468,38 +469,40 @@ header {
                     to {opacity: 1;}
                 }
 
-/* *************************************** MAIN CONTENT ***************************************** */
+/* ********************************************************************* MAIN CONTENT **************************************************************************************** */
 
 #mainContent {
     width: 100% ;
     margin-top: 3.6em;
-    padding-left: 6em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
+    padding-left: 5em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
 }
 
 .carousel {
     display: flex;
     align-items: center;
 
+    margin-bottom: 0.5em;
+    margin-left: 1.5em;
 }
 
 #mainContent .tagList {
     white-space: nowrap;
     overflow-x: scroll; 
-    scrollbar-color: transparent;       /* Keeping the sideways scroll but hiding the scroll bar aways */
+    scrollbar-color: transparent;                       /* Keeping the sideways scroll but hiding the scroll bar aways */
     scrollbar-width: none;
     scrollbar-gutter: stable;     
 }
 
 .tagButton1 {
     background-color: white;
-    border-radius: 0.75em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
+    border-radius: 0.6em;                              /* To avoid button curvature discrepancy when using lengthier buttons, avoid using percentage (as it is relative to the button's length and height) and avoid vw percentage (as it is relative to the viewport width).*/
     border: none 0.1em;
 
-    padding: 0.7em;
+    padding: 0.6em 0.9em 0.6em 0.9em;
     font-weight:600;
 }
 
-.tagButton1 p{
+.tagButton1 a{
     color: #272727;
 }
 
@@ -530,19 +533,115 @@ header {
     transition: 0.3s ease-in-out;
 }
 
-.gridContainer  {
+/* *********************************************************************** AD BANNER ************************************************************************************ */
 
+.belowBanner {
+    position: relative;
+    z-index: 7;
+    height: calc(520px/2.3);                      /* Actual height of the banner divided by two */
+
+    background-color: white;                  /* I set a white background on my div that will span my screen width regardless of the zoom. This creates a seamless effect and has the banner flush with the screen at all times. */
+    display: flex;
+    justify-content: flex-start;                /* ...then I flex-start my image amidst that color. */
+    overflow-X:hidden;                          /* Now that everything is flush, I can his my overflowing background image inside the container */
+}
+
+.aboveBanner {
+    position: absolute;
+    z-index: 8;
+    top: 9.5em;
+
+    width: 430px;                             /* Arbitrary width to keep the paragraph within a small area. */
+
+    padding-left:2em;                         /*Padding for the content */
+}
+
+.aboveBanner p {
+    color: black;
+    font-weight:bold;
+    line-height:30px;
+    font-size: 20px;
+}
+
+.closeButton { 
+    margin-left: auto;                          /* This single line pulls a lot of weight. It allows me to exclude the button and put it at the right of my screen https://stackoverflow.com/questions/35269947/how-can-i-align-one-item-right-with-flexbox */
+
+    position: absolute;                         /* Now I simply, position my button on the z-index and its behavior is still inherited from its flexbox parent. */
+    z-index: 8;
+    right:1em ;
+
+    border: hidden;
+    border-radius: 50%;
+    background-color:rgb(112, 112, 112);
+    padding:0.3em;
+    width: min-content;                        /* "encompassed" the child image */
+    height: min-content;                        /* "encompassed" the child image */
+    margin-top: 0.8em;
+    margin-right: 0.8em;
+}
+
+.closeImage {
+    width: 1.5em;
+    line-height: 0;
+    vertical-align: middle;         /* Enables the burger logo to be centered vertically in the button div */
+}
+
+.premiumLogo {
+    width:19em;
+    margin-bottom:1em;
+}
+
+
+.subscribeWrapper {
+    border: 0.1em solid #065fd4;
+    border-radius: 1.5em;
+
+    width: 5em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
+    padding: 0.2em 0.3em 0.2em 0.3em;
+
+    margin-top: 3em;
+}
+
+.subscribeWrapper a {
+    line-height: 0;                             /* This removes the unoccupied space of the a link below the log-in picture, thus fixing the alignment with the log-in text". */
+ 
+    display: flex;                              /*Aligning loginWrapper's dual child divs together*/
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribeWrapper a p {
+    color: #065fd4;
+    font-size: 13px;
+}
+
+.subscribeWrapper:hover {
+    background-color: rgba(156, 156, 156, 0.205);
+}
+
+.gridContainer  {
     display: flex;
     flex-wrap: wrap;
+    
+
+    justify-content: space-evenly;
     margin-top: 1.5em;
     gap: 1em;
+}
+
+#bannerClosingOpportunity {
+    display: block;
+}
+
+#close:checked ~ #bannerClosingOpportunity {
+    display: none;
 }
 
 /* Example selector : ( .gridContainer > * {} ) The > is to focus on the selected item's children. You can add an asterisk after it to select all the children */ 
 
 .gridItem {
     border: hidden;
-    overflow: hidden;                                     /* Preventing child images from jutting out of this div. Not necessary with the background-image setting I'm using though. */
+    overflow: hidden;                           /* Preventing child images from jutting out of this div. Not necessary with the background-image setting I'm using though. */
 
     display: flex;
     flex-direction: column;
@@ -550,16 +649,18 @@ header {
     text-wrap:wrap;
     text-overflow: ellipsis;
 
-    width:calc(720px/2.1);
+    max-width:calc(720px/2.3);                     /* The width parameter only sets a minimall width. Using maw-width, I can constrain the width of my video title. */
 
-    flex: 1 1 calc(720px/2.1);                          /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens) */ 
-                                                        /* If I put a flex-basis of 0 for my child items, it would-default to auto aka min-content, every items tries to get as small as possible without overflowing */                                          
+    flex: 1 1 calc(720px/2.3);                    /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens) */ 
+                                                /* If I put a flex-basis of 0 for my child items, it would-default to auto aka min-content, every items tries to get as small as possible without overflowing */                                          
+    
+    cursor: pointer;
 }
 
 .thumbnail {
 
-    width: calc(720px/2.1);
-    height: calc(404px/2.1);
+    width: calc(720px/2.3);
+    height: calc(404px/2.3);
 
     transition: all 0.9s ease-in-out;
     background-image: no-repeat;
@@ -585,15 +686,26 @@ header {
     border-radius: 50%
 }
 
+.channelPicture {
+    width:2.4em;
+    margin-right: 0.5em;
+}
+
+.channelName {
+    color:#afafaf;
+    font-size: 14px;
+    line-height: 19px;
+}
+
 .videoTitle {
-    overflow: hidden;
-    text-wrap:wrap;
-    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight:500;
+    margin-bottom: 0.2em;
 }
 
 .videoDetails {
     display:flex;
-
 }
 
 /* ***************************************************** """""FOOTER""""" ****************************************************************************** */

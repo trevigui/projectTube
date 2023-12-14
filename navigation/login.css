@@ -87,6 +87,10 @@ h2 {
     border-radius: 0.4em;
 }
 
+#bottomWrapper {
+    padding: 0em 1em 0em 1em;
+}
+
 .belowCard {
     display: flex;
     flex-direction: row;
