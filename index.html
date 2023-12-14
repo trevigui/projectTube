@@ -19,13 +19,28 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="headerSection1">
             <div>
                 <h1 hidden>YouTube</h1>
             </div>
         </div>
-        </div>
+        <form class="headersection2" action="/navigation/login.html" method="GET">
+            <div class="searchContainer">
+                <label for="searchBar" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" to hide it fully -->
+                <input type="search" id="searchBar" name="searchBar" placeholder="Rechercher" required> <!--"Required" prompts the user to type something into the box if empty-->
+            </div>
+            <div class="searchButton">
+                <label for="image" hidden></label> 
+                <input type="image" id="image" name="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type to add an image to my div-->
+                <p>Rechercher</p>
+            </div>
+        </form>
         <div class="headerSection headerSection3">
+            <div class="searchButton2">
+                <label for="SearchImage2" hidden></label> 
+                <input type="image" id="SearchImage2" name="SearchImage2" src="/resources/header/search.png" alt="Rechercher">
+                <p>Rechercher</p>
+            </div>
             <a id="kabobButton" href="#"><img class="miscImage filtered" src="/resources/header/kabob.png" alt="Bouton Paramètres supérieur"><p>Paramètres</p></a>
             <div class="loginWrapper">
                 <a href="/navigation/login.html">
@@ -45,21 +60,15 @@
                 <div class="burgerButton">
                     <label class="burgerLabel" for="burger"><img class="burgerImage filtered" src="/resources/header/burger.png" alt="Menu Principal"></label>
                 </div>
-                <div class="headerSection headerSection1">
-                    <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
-                    <p>FR</p>
+                <div class="fauxHeader">
+                    <div class="logoSection">
+                        <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
+                        <p>FR</p>
+                    </div>
+
+
+
                 </div>
-                <form class="headerSection headerSection2" action="/navigation/login.html" method="GET">
-                    <div>
-                        <label for="search" hidden></label> <!-- Hiding the label for everyone but people with disabilities, otherwise using "aria-hidden" to hide it fully -->
-                        <input class="searchBar" type="search" id="search" name="search" placeholder="Rechercher" required> <!--"Required" prompts the user to type something into the box if empty-->
-                    </div>
-                    <div class="searchButton">
-                        <label for="image" hidden></label> 
-                        <input type="image" id="image" name="image" src="/resources/header/search.png" alt="Rechercher"> <!--Using an image type instead of a submit type to add an image to my div-->
-                        <p>Rechercher</p>
-                    </div>
-                </form>
             </div>
             <!-- I am loathe to separate my label from my input but my input needs to be in the same parent as fullSidebar and compactSidebar for the tilde selector to work. -->
             <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->

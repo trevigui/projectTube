@@ -5,6 +5,7 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;             /* Adapting content to viewport borders */
     margin: 0;                          /* Always always always add this parameter to the universal selector in order not to see margins around the body and header by default. */
+    padding: 0;
     height: auto;
 
     scroll-behavior: smooth;            /* This makes clicking anchors (such as back to top) smoother-looking */
@@ -16,7 +17,6 @@ a:link {
 
 body {
     background-color: #0f0f0f ;
-    width: 100%;
 }
 
 main {
@@ -62,7 +62,6 @@ h2 {
 
 .fullTop {
     display: flex;
-    flex-direction: row;
 
     align-items: center;
     justify-content: space-between;
@@ -184,8 +183,6 @@ h2 {
     z-index:10;
 
     width: 8em; 
-    
-    height: 100%;
 
     font-size: 10px;
     background-color:#0f0f0f;
@@ -199,7 +196,7 @@ h2 {
 }
 
 #compactSidebar {
-    display: flex;
+    display: none; /* FLEX */
     flex-direction: column;
 
     padding:0.5em;
@@ -226,15 +223,13 @@ h2 {
     outline: solid rgba(255, 255, 255, 0.344) 1px;
 }
 
-.compactImage {
-    width: 2.5em;
-}
-
 /* ******************************************** SIDEBAR TRANSFORM ****************************************** */
 
 #fullSidebar {
     transition: 0.2s;
     transform: translateX(-400px);
+
+    height: 100vh;
 }
 
 #burger:checked ~ #compactSidebar {
@@ -272,8 +267,8 @@ header {
 
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    padding-left: 4.5em;            /* Same as sidebar buttons left margin's combined total */
-    padding-right: 1em;           /* Same as sidebar buttons left margin's combined total */
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .headerSection {
@@ -281,28 +276,41 @@ header {
     align-items: center;
 }
 
-.headerSection1  {                 
-    margin-left: 2em;
+.headerSection1 {
+    min-width:200px;                 /*Padding out the right of the header for a centered search bar */ 
+}
+.headersection2 {
+    display: flex;
+    align-items: center;            /*Aligning the prompt with the search button */
 }
 
-.headerSection1 .logo  {                 
+.headerSection3 {
+    min-width: 200px;               /*Padding out the left of the header for a centered search bar */ 
+}
+
+
+
+/*------------------------------------*/
+
+.logoSection  {                 
+    margin-left: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.logoSection .logo  {                 
     width: 6em;
 }
 
-.headerSection1 p {                 /* Modifying "FR" paragraph after the logo */
+.logoSection p {                 /* Modifying "FR" paragraph after the logo */
     margin-top: 0;                  /* Nullifying the default top margin for <p> */      
     margin-bottom: 2em;             /* Enforcing a bigger-than-default bottom margin for <p> */
     font-size: 10px;
     color: #aaaaaa;
 }
 
-.headerSection1 a h1 {
+.logoSection a h1 {
     line-height: 0;                 /* This removes the unoccupied space of the h1 line that normally appears below the logo */
-}
-
-.headerSection2 {
-    position: absolute;             /* Keeping the searchbar out of the normal flow as putting it the header caused issues with the sidebar on zoom */
-    left: 33vw;
 }
 
 .burgerImage {
@@ -311,11 +319,28 @@ header {
     vertical-align: middle;         /* Enables the burger logo to be centered vertically in the button div */
 }
 
+.fauxHeader {
+
+    display: flex;
+    justify-content: space-between;
+
+    /*                                  AI CODE
+        position: fixed;                Makes the faux header stay at the top when scrolling
+        z-index: 999;                   Brings the faux header on top of other elements
+    visibility: hidden;                 Hides the faux header until it is needed (when the user scrolls)
+    opacity: 0;                         Also makes the faux header invisible until it is shown
+    transition: all 0.5s ease-in-out    Smoothly transitions between visible and invisible states */
+    
+}
+
 .logo {
     width: 2.8em;
 }
 
-.searchBar {
+#searchBar {
+
+    width:30vw;     
+
     background-color: #121212;
     font-size: 16px;
     font-weight: 400;
@@ -324,14 +349,16 @@ header {
     border-top-left-radius: 1.5em;
     border-bottom-left-radius: 1.5em;
     padding-left: 1em;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
 
-    min-width: 30vw;
+    /* min-width: 30vw; */
 
 }
 
 .searchButton {
+
+    display: none;               /* FLEX */
+    justify-content: center;                     /* Centering the logo inside the searchButton div. */
+
     background-color: #222222;
     height: 2.5em;
     width: 4em;         /* min-width could be used to prevent the search logo from being squished on zoom but it is broken of Firefox... */
@@ -342,14 +369,37 @@ header {
     border-bottom: solid #303030 0.1em;
     border-right: solid #303030 0.1em;
     border-top-right-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-
-    display: flex;                     
-    justify-content: center;                     /* Centering the logo inside the searchButton div. */
+    border-bottom-right-radius: 1.5em;                  
 }
 
 #image {
     scale:0.6;                                   /* Using the width attribute would squish the image since the button and search bar have hard-coded heights*/ 
+}
+
+.searchButton2 {
+    margin-right: 1em;
+    line-height: 0;                              /* Removing superflous space used up by empty <a> thus removing slight misalignment of items */
+
+    padding: 4%;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;  
+}
+
+.searchButton2:hover {
+    background-color: rgba(158, 158, 158, 0.137);
+}
+
+.searchButton2:active {
+    outline: solid rgba(255, 255, 255, 0.123) 1px;      /* Using an outline instead of a border prevents the micro-displacement of the header getting bigger because of the adder button border */
+    background-color: rgba(255, 255, 255, 0.185);
+}
+
+#SearchImage2 {
+    width: 2em;
+}
+
+.compactImage {
+    width: 2.5em;
 }
 
 #kabobButton {
@@ -374,7 +424,7 @@ header {
     border: 0.1em solid #303030;
     border-radius: 1.5em;
 
-    width: 12em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
+    min-width: 10em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
     padding-top: 0.4em;
     padding-bottom: 0.4em;
     padding-left: 0.6em;
@@ -393,7 +443,7 @@ header {
 }
 
 .loginWrapper a p {
-    margin-left:0.5em;
+    margin-left: 0.5em;
     color: #3ea6ff;
 }
 
@@ -408,18 +458,18 @@ header {
 
             /* ************************** CUSTOM TOOLTIPS ********************************************************* */
 
-            #kabobButton p {
+            #kabobButton p, .searchButton2 p {
                 display: none;
                 background-color: #5f5e5fe3;
                 color: white;
-                padding: 18px;
+                padding: 15.5px;
                 
                 outline: hidden;
                 border-radius: 0.3em;
                 font-size: 12px;
             }
 
-            #kabobButton:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use hover on, then act on a different one. */
+            #kabobButton:hover p, .searchButton2:hover p {                          /* Daily reminder that I don't have to append the :hover pseudo-element to the very end of my lines, I can choose the element I want to use hover on, then act on a different one. */
                 display: block;
                 position: absolute;
                 
@@ -445,7 +495,6 @@ header {
                 animation: fadeIn 0.3s ease-in-out;
             }
 
-                
             .rightArrowButton p {
                 display: none;
                 background-color: #5f5e5fe3;
@@ -476,7 +525,6 @@ header {
 #mainContent {
     width: 100% ;
     margin-top: 3.6em;
-    padding-left: 5em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
 }
 
 .carousel {
@@ -626,7 +674,6 @@ header {
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 1.5em;
-    gap: 1em;
 }
 
 #bannerClosingOpportunity {
@@ -648,9 +695,9 @@ header {
     flex-flow: column wrap;
     text-overflow: ellipsis;
 
-    /* max-width:calc(720px/1.8);                    The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
+    /* max-width:calc(720px/1.8);                  The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
                         
-    margin-bottom: 2em;
+    margin-bottom: 2em;                         /* Adding margins around is going ot make the grid worse */
 
     cursor: pointer;
 }
@@ -824,9 +871,16 @@ header {
 
 .shortsContainer {
 
-    display: flex;
+    display: grid;
 
-        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows : 1fr;
+    overflow-x:hidden;
+
+        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want
+        overflow-x:auto;
+        scrollbar-color: transparent transparent;           Making my shorts secretly scrollable
+        scrollbar-gutter: stable; */
 
     align-items: center;
 
@@ -834,10 +888,7 @@ header {
     margin-bottom: 2.5em;
     gap: 1.1em;
 
-    overflow-x:auto;
-    scrollbar-color: transparent transparent;           /* Making my shorts secretly scrollable */
 
-    scrollbar-gutter: stable;
 }
 
 .shortsItem {
@@ -988,19 +1039,33 @@ header {
 /* ************************************************************* MEDIA QUERIES ***************************************************************************************** */
 
 /* Pour les tablettes */
-@media screen and (max-width:800px) {
+@media screen and (min-width:425px) {
 
-    #compactSidebar {
+    .searchContainer {
+        display:flex;
+    }
+
+    .searchButton {
+        display: flex;
+    }
+
+    #SearchImage2 {
         display: none;
     }
-    
-    .mainContent {
-        padding: 0;
-    }
 
+ 
 }
 
-@media screen and (min-width:800px) { /* Le min-width est plus difficile à appréhender */
+/* I elected to use (min-width:) as (max-width:) would require me to nullify my mainContent's margins. Setting the margins to 0 within (max-width:) bore no results...*/
+@media screen and (min-width:800px) { /* Min-wodth What is beaing done at more than 800px */
+
+    #compactSidebar {
+        display: flex;
+    }
+
+    #mainContent {
+        padding-left: 5em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
+    }
 
 
 }
