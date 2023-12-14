@@ -40,6 +40,7 @@ h2 {
     border: hidden;
     border-radius: 50%;
     padding: 3%;
+    cursor: pointer;
 }
 
 /* *************************************** FULL SIDEBAR **************************************** */
@@ -74,6 +75,7 @@ h2 {
     position: absolute;           /* Positioning the full bar on top of the compact one, just in case the compact one doesn't disappear */
     z-index: 20;
     top: 5.7em;
+    padding-bottom:5.7em;       /*As I am moving a full height element, I need to offset it with a padding so I can see the entirety of the sidebar's content when I scroll down. */
     left:0;
 
     width:25em;
@@ -284,7 +286,7 @@ header {
 }
 
 .headerSection1 .logo  {                 
-    width: 5em;
+    width: 6em;
 }
 
 .headerSection1 p {                 /* Modifying "FR" paragraph after the logo */
@@ -560,7 +562,7 @@ header {
     color: black;
     font-weight:bold;
     line-height:30px;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .closeButton { 
@@ -598,7 +600,7 @@ header {
     width: 5em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
     padding: 0.2em 0.3em 0.2em 0.3em;
 
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
 .subscribeWrapper a {
@@ -620,12 +622,11 @@ header {
 
 .gridContainer  {
     display: flex;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want */
     flex-wrap: wrap;
-    
-
     justify-content: space-evenly;
     margin-top: 1.5em;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 #bannerClosingOpportunity {
@@ -641,20 +642,20 @@ header {
 .gridItem {
     border: hidden;
     border-radius:0.75em;
-    overflow: hidden;                           /* Preventing child images from jutting out of this div. Not necessary with the background-image setting I'm using though. */
+    overflow: hidden;
 
     display: flex;
     flex-flow: column wrap;
     text-overflow: ellipsis;
 
-    max-width:calc(720px/1.8);                     /* The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
-
-    flex: 1 1 calc(720px/1.8);                    /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens, or 1 works too) */ 
-                                                /* If I put a flex-basis of 0 for my child items, it would-default to auto aka min-content, every items tries to get as small as possible without overflowing */                                          
+    /* max-width:calc(720px/1.8);                    The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
+                        
     margin-bottom: 2em;
 
     cursor: pointer;
 }
+
+
 
 .gridItem:active {
     transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
@@ -667,23 +668,128 @@ header {
     width: calc(720px/1.8);
     height: calc(404px/1.8);
 
-    transition: all 0.9s ease-in-out;
-    background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail.png);
-    background-size: contain;
-
-
     border: hidden;
     border-radius: 0.75em;
 
     margin-bottom: 0.5em;
 }
 
-.thumbnail:hover{
-    background: url(/resources/main/videoThumbnail.gif);
+.thumbnail:hover {
+    opacity: 90%;
+    transition: opacity 0.3s;
+}
+
+.thumbnail1{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail1.png);
+    background-size: contain;
+}
+
+.thumbnail2{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail2.png);
+    background-size: contain;
+}
+
+.thumbnail3{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail3.png);
+    background-size: contain;
+}
+
+.thumbnail4{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail4.png);
+    background-size: contain;
+}
+
+.thumbnail5{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail5.png);
+    background-size: contain;
+}
+
+.thumbnail6{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail6.png);
+    background-size: contain;
+}
+
+.thumbnail7{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail7.png);
+    background-size: contain;
+}
+
+.thumbnail8{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail8.png);
+    background-size: contain;
+}
+
+.thumbnail9{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail9.png);
+    background-size: contain;
+}
+
+.thumbnail10{
+    background-image: no-repeat;
+    background: url(/resources/main/videoThumbnail10.png);
+    background-size: contain;
+}
+
+
+
+.thumbnail1:hover{
+    background: url(/resources/main/videoThumbnail1.gif);
     background-size: contain;
     background-image: no-repeat;
-
+}
+.thumbnail2:hover{
+    background: url(/resources/main/videoThumbnail2.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail3:hover{
+    background: url(/resources/main/videoThumbnail3.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail4:hover{
+    background: url(/resources/main/videoThumbnail4.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail5:hover{
+    background: url(/resources/main/videoThumbnail5.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail6:hover{
+    background: url(/resources/main/videoThumbnail6.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail7:hover{
+    background: url(/resources/main/videoThumbnail7.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail8:hover{
+    background: url(/resources/main/videoThumbnail8.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail9:hover{
+    background: url(/resources/main/videoThumbnail9.gif);
+    background-size: contain;
+    background-image: no-repeat;
+}
+.thumbnail10:hover{
+    background: url(/resources/main/videoThumbnail10.gif);
+    background-size: contain;
+    background-image: no-repeat;
 }
 
 .gridItem img {
@@ -703,43 +809,54 @@ header {
 }
 
 .videoTitle {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 22px;
     font-weight:500;
     margin-bottom: 0.2em;
+
 }
 
 .videoDetails {
-    display:flex;
+    display: flex;
+    
+    max-width: 400px;
 }
 
 .shortsContainer {
+
     display: flex;
+
+        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want */
+
     align-items: center;
 
+
     margin-bottom: 2.5em;
+    gap: 1.1em;
+
+    overflow-x:auto;
+    scrollbar-color: transparent transparent;           /* Making my shorts secretly scrollable */
+
+    scrollbar-gutter: stable;
 }
 
 .shortsItem {
     display: flex;
-    flex-flow: column wrap;
-    max-width: calc(243px * 2)
+    flex-flow: column;
 }
 
-.shortsThumbnail {
-    border: hidden;
-    border-radius: 0.75em;
+.shortsThumbnail img {
+    border: hidden;                 
+    border-radius: 0.75em;             /*I apply my border to the imae as applying it to the parent div causes it to not be not be rounded on the right on tiny zoom levels */
+
+    object-fit: fill;
     overflow: hidden;
 
-    width: calc(243px * 2);
-    height: calc(136px * 2);
-
-    background-size: contain;
-
+    width: 16.5em;
 }
 
 .separator {
-    position: relative;         /* Setting my separator up so my separatorButton can float in the middle of it */
+    position: relative;                 /* Setting my separator up so my separatorButton can float in the middle of it */
     margin: 3em 0 3em 0
 }
 
@@ -866,4 +983,24 @@ header {
 .footerSection3 p {
     color: #717171;
     font-size: 11px;
+}
+
+/* ************************************************************* MEDIA QUERIES ***************************************************************************************** */
+
+/* Pour les tablettes */
+@media screen and (max-width:800px) {
+
+    #compactSidebar {
+        display: none;
+    }
+    
+    .mainContent {
+        padding: 0;
+    }
+
+}
+
+@media screen and (min-width:800px) { /* Le min-width est plus difficile à appréhender */
+
+
 }
