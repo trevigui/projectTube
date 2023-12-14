@@ -591,7 +591,6 @@ header {
     margin-bottom:1em;
 }
 
-
 .subscribeWrapper {
     border: 0.1em solid #065fd4;
     border-radius: 1.5em;
@@ -599,7 +598,7 @@ header {
     width: 5em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
     padding: 0.2em 0.3em 0.2em 0.3em;
 
-    margin-top: 3em;
+    margin-top: 2em;
 }
 
 .subscribeWrapper a {
@@ -626,7 +625,7 @@ header {
 
     justify-content: space-evenly;
     margin-top: 1.5em;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 #bannerClosingOpportunity {
@@ -641,26 +640,32 @@ header {
 
 .gridItem {
     border: hidden;
+    border-radius:0.75em;
     overflow: hidden;                           /* Preventing child images from jutting out of this div. Not necessary with the background-image setting I'm using though. */
 
     display: flex;
-    flex-direction: column;
-
-    text-wrap:wrap;
+    flex-flow: column wrap;
     text-overflow: ellipsis;
 
-    max-width:calc(720px/2.3);                     /* The width parameter only sets a minimall width. Using maw-width, I can constrain the width of my video title. */
+    max-width:calc(720px/1.8);                     /* The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
 
-    flex: 1 1 calc(720px/2.3);                    /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens) */ 
+    flex: 1 1 calc(720px/1.8);                    /* Telling my child items their flex-grow ratio (1), flex-shrink ratio (1), flex-basis (current width before shrinking happens, or 1 works too) */ 
                                                 /* If I put a flex-basis of 0 for my child items, it would-default to auto aka min-content, every items tries to get as small as possible without overflowing */                                          
-    
+    margin-bottom: 2em;
+
     cursor: pointer;
+}
+
+.gridItem:active {
+    transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
+    outline: solid rgba(255, 255, 255, 0.344) 1px;
+    background-color: rgb(49, 49, 49);
 }
 
 .thumbnail {
 
-    width: calc(720px/2.3);
-    height: calc(404px/2.3);
+    width: calc(720px/1.8);
+    height: calc(404px/1.8);
 
     transition: all 0.9s ease-in-out;
     background-image: no-repeat;
@@ -707,6 +712,113 @@ header {
 .videoDetails {
     display:flex;
 }
+
+.shortsContainer {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 2.5em;
+}
+
+.shortsItem {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: calc(243px * 2)
+}
+
+.shortsThumbnail {
+    border: hidden;
+    border-radius: 0.75em;
+    overflow: hidden;
+
+    width: calc(243px * 2);
+    height: calc(136px * 2);
+
+    background-size: contain;
+
+}
+
+.separator {
+    position: relative;         /* Setting my separator up so my separatorButton can float in the middle of it */
+    margin: 3em 0 3em 0
+}
+
+.separator a img {
+    width: 1.5em;
+}
+
+.separatorButton {
+    position: absolute;
+    top:-1.4em;
+    left:35vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: solid rgb(75, 74, 74) 1px;
+    border-radius: 2em;
+    padding : 0.5em 9em 0.5em 9em;
+    background-color: #0f0f0f;
+}
+
+.separatorButton:hover {
+    background-color: rgb(75, 74, 74);
+}
+
+.separatorButton:active {
+    border: solid rgba(255, 255, 255, 0.123) 1px;      /* Using an outline instead of a border prevents the micro-displacement of the header getting bigger because of the adder button border */
+    background-color: rgb(85, 85, 85);
+}
+
+.strikethroughTop {
+    border-bottom: solid rgb(75, 74, 74) 1px;
+}
+
+.contentBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scale:0.55;                     /* For some reason, using the width parameter on the image breaks the align-items:center... And usign the scale parameter on the image still fills the div with the space it would normally occupy*/
+}
+
+.contentBottom img {
+    user-select: none;              /* Removing the ability to select that image. */
+}
+
+.contentBottom p {
+    font-size:40px;
+    font-weight:bold;
+}
+
+.refreshButton {
+    border: 0.1em solid #303030;
+    border-radius: 1.5em;
+    
+    width: 12em;                                    /* Hard-coding the width so the button won't change height with its contents wrapping */
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    margin-top: 1em;
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: #3ea6ff;
+    background-color: #0f0f0F;
+}
+
+
+.refreshButton:hover {
+    background-color: #263850;
+}
+
+.refreshButton:active {
+    transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
+    border: solid rgba(255, 255, 255, 0.344) 1px;
+}
+    
+
 
 /* ***************************************************** """""FOOTER""""" ****************************************************************************** */
 

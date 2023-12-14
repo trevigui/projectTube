@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/styles.css">
+    <script src="script.js"></script> 
     <link rel="shortcut icon" href="https://www.youtube.com/s/desktop/9cc6dbeb/img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +40,7 @@
         </div>
     </header>
     <main>
-        <div id="sidebar">
+        <section id="sidebar">
             <div  class="fullTop">
                 <div class="burgerButton">
                     <label class="burgerLabel" for="burger"><img class="burgerImage filtered" src="/resources/header/burger.png" alt="Menu Principal"></label>
@@ -252,9 +253,9 @@
             </div>
             <div class="blackVeil">
             </div>
-        </div>
+        </section>
         
-        <div id="mainContent">
+        <section id="mainContent">
             <div class="carousel">
                 <div class="tagList">
                     <button class="tagButton1">
@@ -352,7 +353,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">3,9 M de vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -367,7 +368,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">88 k vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -397,7 +398,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">23 k vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -412,7 +413,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">1,4 M de vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -427,7 +428,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">203 k vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -442,7 +443,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">41 k vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -457,7 +458,7 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">94 M de vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
@@ -472,27 +473,303 @@
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">84 M de vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
-            </div>
-
-            <div class="shortsContainer">
-                <div class="shorstsItem shortsItem1">
-                    <div class="shortsThumbnail">
+                <div class="gridItem gridItem10">
+                    <div class="thumbnail">
                         <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
                     </div>
                     <div class="videoDetails">
                         <div>
-                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <img class="channelPicture" src="/resources/main/channel10.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout Et Tout</p>
                             <p class="channelName">Cat Channel</p>
-                            <p class="channelName">63 k vues • il y a 4 heures</p>
+                            <p class="channelName">53 k vues • il y a 4 heures</p>
                         </div>    
                     </div>
                 </div>
             </div>
-        <div>
+            <!-- Using flex-wrap, I find I get better results by having an even number of tiles.-->
+            <div class="shortsContainer">
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts1.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts2.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts3.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts4.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts5.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts6.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts7.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts8.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="shorstsItem shortsItem1">
+                    <div class="shortsThumbnail">
+                        <img src="/resources/main/shorts9.png" alt="Shorts thumbnail" />
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">25 M de vues</p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="separator">
+                <a href="#">
+                    <div class="strikethroughTop"></div>                <!-- Creating two boxes so one can have a bottom-border that will strike through the separatorButton -->
+                    <div class="strikethroughBottom"></div>
+                    <div class="separatorButton">
+                        <p>Plus&emsp;</p>
+                        <img src="/resources/main/downArrow.png" alt="Flêche inférieure">
+                    </div>
+                </a>
+            </div>
+            </div>
+            <div class="gridContainer">
+                <div class="gridItem gridItem1">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel1.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">3,9 M de vues • il y a 6 heures</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem2">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel2.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">88 k vues • il y a 4 semaines</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem3">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel3.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">63 k vues • il y a 3 ans</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem4">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel4.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">23 k vues • il y a 2 semaines</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem5">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel5.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">1,4 M de vues • il y a 8 minutes</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem6">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel6.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">203 k vues • il y a 4 jours </p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem7">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel7.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">41 k vues • il y a 6 mois</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem8">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel8.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">94 M de vues • il y a 2 ans</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem9">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel9.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">84 M de vues • il y a 6 heures</p>
+                        </div>    
+                    </div>
+                </div>
+                <div class="gridItem gridItem10">
+                    <div class="thumbnail">
+                        <!-- <img src="/resources/main/videoThumbnail.png" alt="Video thumbnail" /> -->
+                    </div>
+                    <div class="videoDetails">
+                        <div>
+                            <img class="channelPicture" src="/resources/main/channel10.png" alt="Channel Picture">
+                        </div>
+                        <div>
+                            <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout Et Tout</p>
+                            <p class="channelName">Cat Channel</p>
+                            <p class="channelName">53 k vues • il y a 4 jours</p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="contentBottom">
+                <div>
+                    <img src="/resources/main/unavailable.png" alt="Dessin d'un écran vide de contenu">
+                </div>
+                <div>
+                    <p>Votre flux d'accueil a expiré</p>
+                </div>
+                <div>
+                    <button class="refreshButton" type="submit" onClick="refreshPage()">Actualiser</button>
+                </div>
+            </div>
+        <section>
     </main>
 </body>
 </html>
