@@ -984,8 +984,27 @@ header {
 }
 
 .contentBottom p {
-    font-size:40px;
-    font-weight:bold;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.mapTitle {
+    display: flex;
+    align-items: center;
+    margin-left: 18em;
+    margin-bottom: 1em;
+}
+
+.map {
+    display:flex;
+    justify-content: center;
+    height: 30em;
+    margin-bottom: 10em;
+}
+
+.map iframe {
+    border: solid 1px hidden;
+    border-radius: 1em;
 }
 
 .refreshButton {
@@ -1177,3 +1196,5 @@ header {
     }
 
 }
+
+/* @media all and (max-width:800px) s'adapte à tous les écrans plus petits que 800px */

@@ -1,3 +1,21 @@
+<!-- A réjouter 
+-Pastille créateur verifié avec popup tooltip (::before)
+-Pastille Direct
+-Corriger l'unique media query pour la page de connexion Google
+-Le transform sur l'input dans la page de connexion Google
+-Side buttons as radio buttons that change into their "activated" image when clicked
+-select/option dropdown for languages in login page
+-Checkbox pour le bouton Aide en sidebar
+-Checkbox pour le bouton Envoyer des commentaires en sidebar
+
+Stuck ?
+Whenever something doesn't align, remember that only two block level divs can align together with flex. Anything inline will be ignored.
+
+Careful, CTRL+M fricks with TAB functionnality -->
+
+
+
+
 <!DOCTYPE html><!-- Be careful, adding any unnecessary text here will cause you pain and sadness-->
 <html lang="fr">
 <head>
@@ -781,7 +799,16 @@
                     <button class="refreshButton" type="submit" onClick="refreshPage()">Actualiser</button>
                 </div>
             </div>
-        <section>
+            <div> <!-- To integrate a map, no need to use fancy APIs, just go to Google maps, "adress XYZ", "Share", "Integrate in HTML"-->
+                <div class="mapTitle">
+                    <img class="burgerImage" src="/resources/main/maps.ico" alt="Logo Shorts">
+                    <p>Headquarters</p>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25349.09383711396!2d-122.12334312568356!3d37.422060400000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sfr!2sfr!4v1702644293877!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>

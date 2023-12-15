@@ -33,6 +33,9 @@ h2 {
     /* position: absolute;          Aligning the card vertically, as flex-direction: column and justify-content won't allow me to center vertically for some reason
     top: 20vh; */
 
+    margin-top: 20vh;
+    
+
 }
 
 .middleCard {
@@ -49,17 +52,17 @@ h2 {
     font-size: 14px;
 }
 
-#cardText a, #cardMail2 a, #cardButtons a {
+.cardText a, .cardMail2 a, .cardButtons a {
     color: rgb(26,115,232);
     font-weight: 500;
     font-size: 14px;
 }
 
-#cardTop {
+.cardTop {
     text-align: center;
 }
 
-#cardMail{
+.cardMail{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,13 +78,13 @@ h2 {
     font-size: 16px;
 }
 
-#cardButtons {
+.cardButtons {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#cardButtons .nextButton {
+.cardButtons .nextButton {
     font-weight: 500;
     font-size: 14px;
     background-color: rgb(26,115,232);
@@ -91,8 +94,8 @@ h2 {
     border-radius: 0.4em;
 }
 
-#bottomWrapper {
-    padding: 0em 1em 0em 1em;
+.bottomWrapper {
+    padding: 3em 1em 0em 1em;
 }
 
 .belowCard {
@@ -159,7 +162,7 @@ li:hover {
     display: block;
 }
 
-.dropdownWrapper:active #button {
+.dropdownWrapper:active .button {
     display: inline-block;
     padding: 10px;
     background: white;
