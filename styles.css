@@ -1,5 +1,7 @@
 /* ******************************** UNIVERSAL MODIFICATIONS *************************************** */
 
+/* You can review the different paddings and margins overall from the Firefox Inspector. Filter icon + Little dotter square icon on asterisk */
+
 *{
     color: white;
     font-family: 'Roboto', sans-serif;
@@ -49,6 +51,8 @@ h2 {
     border: 1px solid #ffffff2a hidden;
     border-radius:50%;
     padding: 1em;
+
+    z-index:99;                 /* Just in case, there might be a way to completely avoit putting the burger button fully on top */
 }
 
 .burgerButton:hover  {
@@ -66,14 +70,14 @@ h2 {
     align-items: center;
     justify-content: space-between;
 
-    margin:0.5em 1.5em 0 1.5em;
+    margin:0 1.5em 0 1.5em;
 }
 
 #fullSidebar {
     display: block;
     position: absolute;           /* Positioning the full bar on top of the compact one, just in case the compact one doesn't disappear */
     z-index: 20;
-    top: 5.7em;
+    top: 4.5em;
     padding-bottom:5.7em;       /*As I am moving a full height element, I need to offset it with a padding so I can see the entirety of the sidebar's content when I scroll down. */
     left:0;
 
@@ -95,11 +99,12 @@ h2 {
 
 .blackVeil {                /* Black div that spawns upon burger menu activaion */
     display: none;
-    position:absolute;
+    position: relative;
+    bottom: 5em;
 
     background-color:#0000006c ;
-    width:100vw;
-    height:100%;
+    width:100vmax;
+    height:100vmax;
 
     animation: fadeIn 1s ease-in-out;           /* It is impossible to use translateX with the display:none display:block mechanic siultaneously 😢. That's the next best thing. */
 }
@@ -178,12 +183,11 @@ h2 {
 /* ********************************** COMPACT SIDEBAR ************************************* */
 
 #sidebar {
-
-    position: relative;
-    z-index:10;
+    z-index:10;                 /* Not going to touch the position, only modifying the layering */
 
     width: 8em; 
 
+    padding-top: 0.5em;             /* To align my burger button and faux-header with the actual header */
     font-size: 10px;
     background-color:#0f0f0f;
 
@@ -192,14 +196,13 @@ h2 {
     
     display: flex;                  /* To align the burger button */
     flex-direction:column;
-    align-items: space-between;
 }
 
 #compactSidebar {
     display: none; /* FLEX */
     flex-direction: column;
 
-    padding:0.5em;
+    padding: 0.5em;
 
 }
 
@@ -242,7 +245,7 @@ h2 {
 }
 
 #burger:checked ~ .blackVeil {
-    display:inherit;
+    display: block;
     transform: translateX(25em); 
 }
 
@@ -259,7 +262,7 @@ header {
     z-index: 10;                    /* Below the searchbar, on top of the ad banner */
     top: 0;                         /*... to the top-leftmost part of the page*/
     width: 100%;                    /*Making the header stick to the left and right borders of the page */
-    
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -277,15 +280,12 @@ header {
 }
 
 .headerSection1 {
-    min-width:200px;                 /*Padding out the right of the header for a centered search bar */ 
+    min-width: 185px;                 /*Padding out the right of the header for a centered search bar */
 }
+
 .headersection2 {
     display: flex;
     align-items: center;            /*Aligning the prompt with the search button */
-}
-
-.headerSection3 {
-    min-width: 200px;               /*Padding out the left of the header for a centered search bar */ 
 }
 
 
@@ -322,7 +322,7 @@ header {
 .fauxHeader {
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     /*                                  AI CODE
         position: fixed;                Makes the faux header stay at the top when scrolling
@@ -333,10 +333,6 @@ header {
     
 }
 
-.logo {
-    width: 2.8em;
-}
-
 #searchBar {
 
     width:30vw;     
@@ -344,7 +340,7 @@ header {
     background-color: #121212;
     font-size: 16px;
     font-weight: 400;
-    height: 2.5em;
+    height: 2.3em;
     border: solid #303030 0.1em;
     border-top-left-radius: 1.5em;
     border-bottom-left-radius: 1.5em;
@@ -354,13 +350,17 @@ header {
 
 }
 
+.searchContainer {
+    display:none;
+}
+
 .searchButton {
 
     display: none;               /* FLEX */
     justify-content: center;                     /* Centering the logo inside the searchButton div. */
 
     background-color: #222222;
-    height: 2.5em;
+    height: 2.3em;
     width: 4em;         /* min-width could be used to prevent the search logo from being squished on zoom but it is broken of Firefox... */
     font-size: 16px;
 
@@ -380,7 +380,7 @@ header {
     margin-right: 1em;
     line-height: 0;                              /* Removing superflous space used up by empty <a> thus removing slight misalignment of items */
 
-    padding: 4%;
+    padding: 0.5em;
     border-radius: 50%;
     transition: 0.3s ease-in-out;  
 }
@@ -395,7 +395,7 @@ header {
 }
 
 #SearchImage2 {
-    width: 2em;
+    width: 1.6em;
 }
 
 .compactImage {
@@ -403,10 +403,13 @@ header {
 }
 
 #kabobButton {
+
+    display:none;
+
     margin-right: 1em;
     line-height: 0;                              /* Removing superflous space used up by empty <a> thus removing slight misalignment of items */
 
-    padding: 4%;
+    padding: 0.5em;
     border-radius: 50%;
     transition: 0.3s ease-in-out;                /* Replicating that light border blink on click */
 }
@@ -418,6 +421,15 @@ header {
 
 .miscImage {
     width: 1.6em;
+}
+
+#login1 {
+    display:none;
+}
+
+#login2 {
+    display:none;
+    line-height:0;
 }
 
 .loginWrapper {
@@ -669,11 +681,15 @@ header {
 }
 
 .gridContainer  {
-    display: flex;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want */
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    /* Using minmax, setting a bigger min-width creates wiggle room for my pictures inside their container, which can help containers resize more often and create fewer humongous gaps. */
+    grid-template-columns: repeat(auto-fit, minmax(calc(720px / 2), 1fr) ); /* Minimum is the width of my thumbnail picture, Maximum is 1fr ergo a comparatively full column */
+    gap: 1em;
+    justify-items: center;      /* This is specifically to center the grid horizontally !!! DO NOT DELETE*/
+    /* justify-content: center; */
     margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    /* grid-auto-flow: dense;  */
 }
 
 #bannerClosingOpportunity {
@@ -695,14 +711,12 @@ header {
     flex-flow: column wrap;
     text-overflow: ellipsis;
 
-    /* max-width:calc(720px/1.8);                  The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title. */
+    max-width:calc(720px/2);                /*  The width parameter only sets a minimal width. Using max-width, I can constrain the width of my video title.
                         
-    margin-bottom: 2em;                         /* Adding margins around is going ot make the grid worse */
+    margin-bottom: 2em;                         /* Adding any margin other than bottom is going to make the grid look uglier. */
 
     cursor: pointer;
 }
-
-
 
 .gridItem:active {
     transition: 0.3s ease-in-out;    /* Replicating that light border blink on click */
@@ -712,8 +726,8 @@ header {
 
 .thumbnail {
 
-    width: calc(720px/1.8);
-    height: calc(404px/1.8);
+    width: calc(720px/2);
+    height: calc(404px/2);
 
     border: hidden;
     border-radius: 0.75em;
@@ -860,13 +874,24 @@ header {
     line-height: 22px;
     font-weight:500;
     margin-bottom: 0.2em;
-
 }
 
 .videoDetails {
     display: flex;
     
     max-width: 400px;
+}
+
+.shortsTitle {
+    display: none ; /* FLEX */
+    align-items: center;
+    padding-bottom: 1em;
+    padding-left: 0.5em;
+}
+
+.shortsTitle p {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .shortsContainer {
@@ -877,14 +902,16 @@ header {
     grid-template-rows : 1fr;
     overflow-x:hidden;
 
-        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));                This won't keep my videos looking uniform indide their container but look more visually pleasing as it fits the screen better tha flex-wrap. Repeating the mimax allows me to have as many columns as I want
-        overflow-x:auto;
-        scrollbar-color: transparent transparent;           Making my shorts secretly scrollable
-        scrollbar-gutter: stable; */
+        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+
+    overflow-x:auto;
+    scrollbar-color: transparent transparent;           /*Making my shorts secretly scrollable*/
+    scrollbar-gutter: stable;
 
     align-items: center;
 
-
+    padding-left : 0.5em ;
+    padding-right : 0.5em ;
     margin-bottom: 2.5em;
     gap: 1.1em;
 
@@ -908,7 +935,8 @@ header {
 
 .separator {
     position: relative;                 /* Setting my separator up so my separatorButton can float in the middle of it */
-    margin: 3em 0 3em 0
+    margin: 3em 0 3em 0;
+
 }
 
 .separator a img {
@@ -918,7 +946,8 @@ header {
 .separatorButton {
     position: absolute;
     top:-1.4em;
-    left:35vw;
+    left: 50%;                          /*Centering horizontally relatively to parent*/
+    transform: translateX(-50%);        /*Accounting for the fact that the top left corner is the thing being centered.*/
 
     display: flex;
     justify-content: center;
@@ -940,7 +969,7 @@ header {
 }
 
 .strikethroughTop {
-    border-bottom: solid rgb(75, 74, 74) 1px;
+    border-bottom: 1px solid transparent;
 }
 
 .contentBottom {
@@ -1038,9 +1067,68 @@ header {
 
 /* ************************************************************* MEDIA QUERIES ***************************************************************************************** */
 
-/* Pour les tablettes */
+
+@media screen and (max-width:425px) {
+
+    .headerSection2 {
+        display: none;
+    }
+
+    #login2 {
+        display:block;
+    }
+
+    .aboveBanner {
+        top: 7.5em;
+        padding-right: 10em;
+    }
+
+    .subscribeWrapper {
+        margin-top: 0.5em;
+    }
+
+    /* .thumbnail {
+        width: calc(720px/3.6);
+        height: calc(404px/3.6);
+    }
+
+    .gridItem {
+    max-width:calc(720px/3.6);
+    }
+
+    .gridContainer {
+    grid-template-columns: repeat(auto-fit, minmax(calc(720px / 3.6), 1fr) );
+    } */
+
+    .shortsTitle {
+        display:flex;
+    }
+
+}
+
 @media screen and (min-width:425px) {
 
+    #kabobButton {
+        display: block;
+    }
+
+    #login2 {
+        display:block;
+    }
+
+    .shortsTitle {
+        display:flex;
+    }
+
+
+}
+
+@media screen and (min-width: 600px) {
+
+    #SearchImage2 {
+        display: none;
+    }
+    
     .searchContainer {
         display:flex;
     }
@@ -1049,12 +1137,20 @@ header {
         display: flex;
     }
 
-    #SearchImage2 {
-        display: none;
+    #searchBar {
+        max-width: 200px;
     }
 
- 
+    .strikethroughTop {
+        border-bottom: solid rgb(75, 74, 74) 1px;
+    }
+    
+    .shortsTitle {
+        display:none;
+    }
+
 }
+
 
 /* I elected to use (min-width:) as (max-width:) would require me to nullify my mainContent's margins. Setting the margins to 0 within (max-width:) bore no results...*/
 @media screen and (min-width:800px) { /* Min-wodth What is beaing done at more than 800px */
@@ -1065,7 +1161,19 @@ header {
 
     #mainContent {
         padding-left: 5em;      /*Only use padding here. Using margins here will cause a horizontal scroll because the sidebar already occupies about 10% of the 100% width that was hardcoded to mainContent */
+        padding-right: 1em;
     }
 
+    #searchBar {
+        max-width: none;
+    }
+
+    #login2 {
+        display: none;
+    }
+
+    #login1 {
+        display: block;
+    }
 
 }

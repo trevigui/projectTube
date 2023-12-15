@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!-- Be careful, adding any unnecessary text here will cause you pain and sadness-->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="/styles.css">
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
     <link rel="shortcut icon" href="https://www.youtube.com/s/desktop/9cc6dbeb/img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <title>YouTube</title>
 </head>
 <body>
@@ -42,7 +42,10 @@
                 <p>Rechercher</p>
             </div>
             <a id="kabobButton" href="#"><img class="miscImage filtered" src="/resources/header/kabob.png" alt="Bouton Paramètres supérieur"><p>Paramètres</p></a>
-            <div class="loginWrapper">
+            <div id="login2">
+                <img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter">
+            </div>
+            <div id="login1" class="loginWrapper">
                 <a href="/navigation/login.html">
                     <div>
                         <img class="miscImage" src="/resources/header/login.png" alt="Bouton Se connecter">
@@ -65,12 +68,9 @@
                         <a href="#"><h1><img class="logo" src="/resources/header/logo.png" alt="Accueil YouTube" title="Accueil YouTube"></h1></a>
                         <p>FR</p>
                     </div>
-
-
-
                 </div>
             </div>
-            <!-- I am loathe to separate my label from my input but my input needs to be in the same parent as fullSidebar and compactSidebar for the tilde selector to work. -->
+            <!-- I am loath to separate my label from my input but my input needs to be in the same parent as fullSidebar and compactSidebar for the tilde selector to work. -->
             <input name="burger" id="burger" type="checkbox" hidden></input> <!--Hiding the checkbox that serves as a burger menu opening mechanism-->
             <div id="compactSidebar">
                 <div class="compactButtonWrapper" active>
@@ -502,7 +502,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Using flex-wrap, I find I get better results by having an even number of tiles.-->
+            <div class="shortsTitle">
+                <img class="burgerImage" src="/resources/main/shorts.png" alt="Logo Shorts">
+                <p>Shorts</p>
+            </div>
             <div class="shortsContainer">
                 <div class="shortsItem shortsItem1">
                     <div class="shortsThumbnail">
@@ -522,7 +525,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">345 k vues</p>
                         </div>    
                     </div>
                 </div>
@@ -533,7 +536,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">834 vues</p>
                         </div>    
                     </div>
                 </div>
@@ -544,7 +547,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">2 M de vues</p>
                         </div>    
                     </div>
                 </div>
@@ -555,7 +558,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">29 M de vues</p>
                         </div>    
                     </div>
                 </div>
@@ -566,7 +569,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">34 vues</p>
                         </div>    
                     </div>
                 </div>
@@ -577,7 +580,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">45 k vues</p>
                         </div>    
                     </div>
                 </div>
@@ -588,7 +591,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">374 k vues</p>
                         </div>    
                     </div>
                 </div>
@@ -599,7 +602,7 @@
                     <div class="videoDetails">
                         <div>
                             <p class="videoTitle">Lorem Ipsum Dolor Sit Amet Et Tout Et Tout Et Tout Et Tout Et Tout</p>
-                            <p class="channelName">25 M de vues</p>
+                            <p class="channelName">53 M de vues</p>
                         </div>    
                     </div>
                 </div>

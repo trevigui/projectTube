@@ -4,6 +4,10 @@
     box-sizing: border-box;             /*Adapting content to viewport borders */
 }
 
+
+body  {
+    position: relative;
+}
 h1 {             
     display: flex;
     justify-content: center;             /*h1 forces my logo to stay at flex-start even with justify-content:center set in parent container */
@@ -26,8 +30,8 @@ h2 {
     flex-direction: column;
     align-items: center;        /*Aligning sideways on the page */
 
-    position: relative;          /*Aligning the card vertically, as flex-direction: column and justify-content won't allow me to center vertically for some reason*/
-    top: 20vh;
+    /* position: absolute;          Aligning the card vertically, as flex-direction: column and justify-content won't allow me to center vertically for some reason
+    top: 20vh; */
 
 }
 
@@ -103,8 +107,9 @@ h2 {
 /* *************************************** CSS Only Dropdown Menu ***************************************************** */
 .dropdownMenu {
     display: none;
-    position: relative;
-    top: -410px;
+    position: absolute;
+    top: 120px;
+    right: 210px;
     padding: -410px 0 0 0;
     margin: 0;
     font-size: 12px;
@@ -159,4 +164,21 @@ li:hover {
     padding: 10px;
     background: white;
     color: black;
+}
+
+@media screen and (max-width:425px) {
+    .middleCard {
+        border: 1px transparent;
+        animation: fadeIn 0.2s ease-in-out; 
+    }
+
+    body {
+        scale: 0.8;
+        animation: fadeIn 0.2s ease-in-out; 
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
