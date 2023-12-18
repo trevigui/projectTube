@@ -578,6 +578,10 @@ header {
     font-weight:600;
 }
 
+.tagButton a {
+    color:white;
+}
+
 .rightArrowButton {
     border: hidden;
     border-radius: 50%;
@@ -742,113 +746,113 @@ header {
 
 .thumbnail1{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail1.png);
+    background: url(resources/main/videoThumbnail1.png);
     background-size: contain;
 }
 
 .thumbnail2{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail2.png);
+    background: url(resources/main/videoThumbnail2.png);
     background-size: contain;
 }
 
 .thumbnail3{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail3.png);
+    background: url(resources/main/videoThumbnail3.png);
     background-size: contain;
 }
 
 .thumbnail4{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail4.png);
+    background: url(resources/main/videoThumbnail4.png);
     background-size: contain;
 }
 
 .thumbnail5{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail5.png);
+    background: url(resources/main/videoThumbnail5.png);
     background-size: contain;
 }
 
 .thumbnail6{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail6.png);
+    background: url(resources/main/videoThumbnail6.png);
     background-size: contain;
 }
 
 .thumbnail7{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail7.png);
+    background: url(resources/main/videoThumbnail7.png);
     background-size: contain;
 }
 
 .thumbnail8{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail8.png);
+    background: url(resources/main/videoThumbnail8.png);
     background-size: contain;
 }
 
 .thumbnail9{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail9.png);
+    background: url(resources/main/videoThumbnail9.png);
     background-size: contain;
 }
 
 .thumbnail10{
     background-image: no-repeat;
-    background: url(/resources/main/videoThumbnail10.png);
+    background: url(resources/main/videoThumbnail10.png);
     background-size: contain;
 }
 
 
 
 .thumbnail1:hover{
-    background: url(/resources/main/videoThumbnail1.gif);
+    background: url(resources/main/videoThumbnail1.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail2:hover{
-    background: url(/resources/main/videoThumbnail2.gif);
+    background: url(resources/main/videoThumbnail2.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail3:hover{
-    background: url(/resources/main/videoThumbnail3.gif);
+    background: url(resources/main/videoThumbnail3.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail4:hover{
-    background: url(/resources/main/videoThumbnail4.gif);
+    background: url(resources/main/videoThumbnail4.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail5:hover{
-    background: url(/resources/main/videoThumbnail5.gif);
+    background: url(resources/main/videoThumbnail5.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail6:hover{
-    background: url(/resources/main/videoThumbnail6.gif);
+    background: url(resources/main/videoThumbnail6.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail7:hover{
-    background: url(/resources/main/videoThumbnail7.gif);
+    background: url(resources/main/videoThumbnail7.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail8:hover{
-    background: url(/resources/main/videoThumbnail8.gif);
+    background: url(resources/main/videoThumbnail8.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail9:hover{
-    background: url(/resources/main/videoThumbnail9.gif);
+    background: url(resources/main/videoThumbnail9.gif);
     background-size: contain;
     background-image: no-repeat;
 }
 .thumbnail10:hover{
-    background: url(/resources/main/videoThumbnail10.gif);
+    background: url(resources/main/videoThumbnail10.gif);
     background-size: contain;
     background-image: no-repeat;
 }
